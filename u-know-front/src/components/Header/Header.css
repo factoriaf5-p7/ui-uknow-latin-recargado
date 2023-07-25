@@ -1,0 +1,55 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; 
+  padding: 25px;
+  color: #333;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto; 
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  margin-left: 15px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+nav a img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+@media (min-width: 768px) {
+  header {
+  margin-left: 125px;
+  margin-right: 125px;
+  }
+}
