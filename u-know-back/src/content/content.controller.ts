@@ -35,7 +35,8 @@ export class ContentController {
     private readonly contentService: ContentService,
     private readonly userService: UserService,
   ) {}
-  //permitir que los usuarios registrados creen contenido
+
+  //ALLOW REGISTERED USERS TO CREATE CONTENT
   @Post(':userId')
   createContent(
     @Param('userId') userId,
@@ -43,7 +44,8 @@ export class ContentController {
   ): Promise<Content> {
     return this.contentService.createContent(contentDto, userId);
   }
-  //permitir que los usuarios registrados vean el contenido que han creado
+
+  //ALLOW USERS TO SEE THE CONTENT THEY HAVE CREATED
   @Get('user/:userId')
   findUserContent(@Param('userId') userId: string): Promise<Content[]> {
     return this.contentService.findUserContent(userId);
@@ -56,18 +58,21 @@ export class ContentController {
     console.log(req.user, 'user?');
     return this.contentService.findAll();
   }
-  //permitir que los usuarios registrados vean contenido por id
+
+  //ALLOW USERS TO VIEW CONTENT BY ID
   @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.contentService.findOne(id);
   }
-  //permitir que los usuarios registrados actualicen contenido
+
+  //ALLOW REGISTERED USERS TO UPDATE CONTENT
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
     return this.contentService.update(id, updateContentDto);
   }
-  //permitir que los usuarios registrados eliminen contenido
+  
+  //ALLOW REGISTERED USERS TO DELETE CONTENT
   @Delete(':id')
   delete(@Req() req, @Param('id') id: string) {
     const token = req.headers.authorization?.replace('Bearer ', '');

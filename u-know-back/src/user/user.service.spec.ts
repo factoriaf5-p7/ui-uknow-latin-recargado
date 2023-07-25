@@ -13,8 +13,6 @@ const users = [
     wallet_balance: 1000,
     id_published_content: [1, 2, 3],
     id_bought_content: [4, 5, 6],
-    // created_at: new Date('2023-06-15'),
-    // created_update: new Date('2023-06-16'),
   },
 ];
 

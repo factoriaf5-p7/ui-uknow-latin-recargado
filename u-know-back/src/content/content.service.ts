@@ -22,6 +22,7 @@ export class ContentService {
     private readonly jwtService: JwtService,
   ) {}
 
+  //CREATE CONTENT
   async createContent(
     createContentDto: CreateContentDto,
     _id: string,
@@ -46,16 +47,21 @@ export class ContentService {
     return createdContent;
   }
 
+//SEARCH CONTENTS OF A USER
   async findUserContent(userId: string): Promise<Content[]> {
     return this.contentModel.find({ author_id: userId }).exec();
   }
 
+  //SEARCH CONTENTS ALL
   async findAll(): Promise<Content[]> {
     return this.contentModel.find().sort({ averagerating: 1 }).exec();
   }
+  //SEARCH CONTENTS FOR ID
   async findOne(id: string): Promise<Content> {
     return this.contentModel.findOne({ _id: id }).exec();
   }
+
+  //UPDATE CONTENT FOR ID
   async update(id: string, updateContentDto: UpdateContentDto) {
     const content = await this.contentModel.findById(id);
     if (!content) {
@@ -67,6 +73,7 @@ export class ContentService {
     return updateContent;
   }
 
+  //DELETE CONTENT FOR ID
   async delete(id: string, token: string) {
     const content = await this.contentModel.findById(id).exec(); // Buscar el contenido por su ID
     const decodedToken = this.jwtService.verify(token);
@@ -76,9 +83,6 @@ export class ContentService {
     }
 
     // Verificar si el contenido ha sido comprado por algún usuario
-    /* const isContentPurchased = await this.contentModel.exists({
-      id_bought_content: id,
-    }); */
     if (content.sales) {
       throw new HttpException(
         'Content cannot be deleted as it has been purchased',
@@ -104,6 +108,7 @@ export class ContentService {
     return { message: 'Content deleted successfully' };
   }
 
+//BUY CONTENT
   async buyContent(id: string, contentId: string) {
     const content = await this.contentModel.findById(contentId);
     if (!content) {
@@ -128,6 +133,7 @@ export class ContentService {
     return content;
   }
 
+  //SEARCH BOUGHT CONTENT
   async getBoughtContent(id: string): Promise<Content[]> {
     // Buscar el usuario por su ID y verificar si el usuario existe
     const user: User = await this.userModel.findById(id);
@@ -141,6 +147,7 @@ export class ContentService {
     return boughtContent;
   }
 
+  // COMMENT CONTENT ID 
   async addComment(_id: string, comment: any) {
     const contentComment: ContentDocument = await this.contentModel.findById(
       _id,

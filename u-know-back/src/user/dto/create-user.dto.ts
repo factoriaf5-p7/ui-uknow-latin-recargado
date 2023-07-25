@@ -12,10 +12,6 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 
 export class CreateUserDto {
-/*   @ApiProperty()
-  @IsNotEmpty()
-  @IsNumber()
-  id: string; */
 
   @ApiProperty()
   @IsNotEmpty()
@@ -24,7 +20,7 @@ export class CreateUserDto {
 
   @ApiProperty()
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   user_name: string;
 
   @ApiProperty()
@@ -38,17 +34,17 @@ export class CreateUserDto {
   email: string;
 
   @ApiProperty()
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
   wallet_balance: number;
 
   @ApiProperty()
-  @IsNotEmpty()
+  @IsOptional()
   @IsArray()
   id_published_content: number[];
 
   @ApiProperty()
-  @IsNotEmpty()
+  @IsOptional()
   @IsArray()
   id_bought_content: number[];
 
