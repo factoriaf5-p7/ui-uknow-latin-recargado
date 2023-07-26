@@ -10,12 +10,13 @@ header {
 }
 
 .logo {
+  border: 1px solid red;
   display: flex;
   align-items: center;
 }
 
 .logo img {
-  width: 40px;
+  width: 50px;
 }
 
 nav {

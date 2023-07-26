@@ -3,13 +3,14 @@ import Form from 'react-bootstrap/Form';
 import {ChangeEvent, FormEvent, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../../services/auth.service';
+import { useUserContext } from '../../UserContext';
 
 export default function Login() {
+  const navigate = useNavigate()
+  const initialState = { email:'', password:''}
+  const [formData, setFromData] = useState({ email: '', password: '', })
+  const { setUserNameAfterLogin } = useUserContext();
 
-    const navigate = useNavigate()
-    const initialState = { email:'', password:''}
-
-    const [formData, setFromData] = useState({email:'', password:'',})
     const handleChange =(event:ChangeEvent<HTMLInputElement>)=>{
         setFromData({
             ...formData,
@@ -20,11 +21,11 @@ export default function Login() {
         event.preventDefault();  
         console.log(formData)
          const response = await authService.login(formData)
-       localStorage.setItem('token', response.data.access_token)
+      localStorage.setItem('token', response.data.access_token)
+      setUserNameAfterLogin(formData.email);
        navigate('/home-user') 
        setFromData(initialState)  
     }
-
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -46,6 +47,6 @@ export default function Login() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-    </Form>
+      </Form>
   );
 }

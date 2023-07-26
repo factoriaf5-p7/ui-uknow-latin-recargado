@@ -1,15 +1,16 @@
 import React from 'react';
 
 interface UserAvatarProps {
+    name: string;
     avatarUrl: string;
-    username: string;
 }
 
-const UserAvatar: React.FC<UserAvatarProps> = ({ avatarUrl, username }) => {
+const UserAvatar: React.FC<UserAvatarProps> = ({ name/* , avatarUrl */ }) => {
+    console.log('User information:', { name, /* avatarUrl  */});
     return (
-        <div className="user-avatar">
-            <img src={avatarUrl} alt={`${username}'s Avatar`} />
-            <p>{username}</p>
+        <div>
+            {/* <img src={avatarUrl} alt="Avatar del Usuario" /> */}
+            <h3>{name}</h3>
         </div>
     );
 };
