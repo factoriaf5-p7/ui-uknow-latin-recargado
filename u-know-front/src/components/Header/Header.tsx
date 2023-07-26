@@ -1,10 +1,12 @@
 import React from 'react';
 import './Header.css'
 import { Link } from 'react-router-dom';
-import { FaWallet } from 'react-icons/fa';
+/* import { FaWallet } from 'react-icons/fa'; */
+import { useUserContext } from '../../UserContext';
+import UserAvatar from '../UserAvatar/UserAvatar';
 
 const Header: React.FC = () => {
-
+    const { name } = useUserContext();
     return (
         <header>
             <div className="logo">
@@ -13,19 +15,20 @@ const Header: React.FC = () => {
                 </Link>
             </div>
             <nav>
-                <ul>
-                    <li>
+                <ul className="ul">
+                    {/* <li>
                         <Link to="/wallet">
                             <FaWallet />
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/profile">
-                            
+                            {name}
                         </Link>
                     </li>
                 </ul>
             </nav>
+{/*             <UserAvatar name={name} avatarUrl="URL_DEL_AVATAR_DEL_USUARIO" /> */}
         </header>
     );
 };
