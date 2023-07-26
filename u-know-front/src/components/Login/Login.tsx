@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {ChangeEvent, FormEvent, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { authService } from '../../services/auth.service';
+import { authService } from '../../services/user.service';
 import './Login.css'
 
 export default function Login() {
@@ -40,6 +40,7 @@ export default function Login() {
         <Form.Label>Password</Form.Label>
         <Form.Control name='password' value={formData.password} onChange={handleChange} type="password" placeholder="Password" />
       </Form.Group>
+      
        <Button variant="primary" type="submit">
         Login
       </Button>
