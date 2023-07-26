@@ -10,7 +10,6 @@ async function bootstrap() {
     app.setGlobalPrefix('api/v1');
     app.useGlobalPipes(new common_1.ValidationPipe({ whitelist: true }));
     app.enableCors();
-    await app.listen(3000);
     const config = new swagger_1.DocumentBuilder()
         .setTitle('U-know Backend API')
         .setDescription('Backend API description')
