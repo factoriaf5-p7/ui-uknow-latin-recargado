@@ -21,7 +21,7 @@ export default function Login() {
         console.log(formData)
          const response = await authService.login(formData)
        localStorage.setItem('token', response.data.access_token)
-       navigate('/home') 
+       navigate('/home-user') 
        setFromData(initialState)  
     }
 
