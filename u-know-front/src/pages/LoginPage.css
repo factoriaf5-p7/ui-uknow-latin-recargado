@@ -22,3 +22,16 @@ p {
     padding: 20px;
 }
 
+.logo-login {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente los elementos flexibles (en este caso, la imagen) */
+  align-items: center; /* Centra verticalmente los elementos flexibles (en este caso, la imagen) */
+  height: 200px; /* Ajusta esta altura según tus necesidades */
+}
+
+.logo-login img {
+  max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
+  max-height: 100%; /* Asegura que la imagen no se desborde del contenedor */
+}
+
+

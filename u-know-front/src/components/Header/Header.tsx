@@ -3,7 +3,7 @@ import './Header.css'
 import { Link } from 'react-router-dom';
 /* import { FaWallet } from 'react-icons/fa'; */
 import { useUserContext } from '../../UserContext';
-import UserAvatar from '../UserAvatar/UserAvatar';
+/* import UserAvatar from '../UserAvatar/UserAvatar'; */
 
 const Header: React.FC = () => {
     const { name } = useUserContext();
