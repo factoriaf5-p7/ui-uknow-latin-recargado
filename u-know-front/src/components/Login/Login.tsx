@@ -4,7 +4,7 @@ import {ChangeEvent, FormEvent, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../../services/user.service';
 import './Login.css'
-import { useUserContext, useWalletContext } from '../../UserContext';
+import { useUserContext } from '../../UserContext';
 
 
 export default function Login() {
@@ -12,8 +12,6 @@ export default function Login() {
   const initialState = { email:'', password:''}
   const [formData, setFromData] = useState({ email: '', password: '', })
   const { setUserNameAfterLogin } = useUserContext();
-  const { setUserWalletAfterLogin } = useWalletContext()
-  
 
     const handleChange =(event:ChangeEvent<HTMLInputElement>)=>{
         setFromData({
@@ -26,16 +24,7 @@ export default function Login() {
         console.log(formData)
          const response = await authService.login(formData)
       localStorage.setItem('token', response.data.access_token)
-      localStorage.setItem('name', response.data.name)
-      localStorage.setItem('wallet_balance', response.data.wallet_balance)
-      console.log(response)
-      
-      setUserNameAfterLogin(response.data.name);
-       navigate('/home-user') 
-       setFromData(initialState)  
-
-
-       setUserWalletAfterLogin(response.data.wallet_balance);
+      setUserNameAfterLogin(formData.email);
        navigate('/home-user') 
        setFromData(initialState)  
     }
@@ -44,14 +33,14 @@ export default function Login() {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control name='email' value={formData.email} onChange={handleChange} type="email" placeholder="Enter email" required />
+        <Form.Control name='email' value={formData.email} onChange={handleChange} type="email" placeholder="Enter email" />
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control name='password' value={formData.password} onChange={handleChange} type="password" placeholder="Password" required />
+        <Form.Control name='password' value={formData.password} onChange={handleChange} type="password" placeholder="Password" />
       </Form.Group>
       
        <Button variant="primary" type="submit">
