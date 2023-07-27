@@ -47,7 +47,7 @@ export class ContentService {
     return createdContent;
   }
 
-//SEARCH CONTENTS OF A USER
+  //SEARCH CONTENTS OF A USER
   async findUserContent(userId: string): Promise<Content[]> {
     return this.contentModel.find({ author_id: userId }).exec();
   }
@@ -108,7 +108,7 @@ export class ContentService {
     return { message: 'Content deleted successfully' };
   }
 
-//BUY CONTENT
+  //BUY CONTENT
   async buyContent(id: string, contentId: string) {
     const content = await this.contentModel.findById(contentId);
     if (!content) {
@@ -147,7 +147,7 @@ export class ContentService {
     return boughtContent;
   }
 
-  // COMMENT CONTENT ID 
+  // COMMENT CONTENT ID
   async addComment(_id: string, comment: any) {
     const contentComment: ContentDocument = await this.contentModel.findById(
       _id,
@@ -203,6 +203,14 @@ export class ContentService {
     await content.save();
 
     return content;
+  }
+  //busca en los campos de título y contenido (title y content)
+  async searchContent(query: string): Promise<Content[]> {
+    const regexQuery = new RegExp(query, 'i');
+    const searchResults = await this.contentModel.find({
+      $or: [{ title: regexQuery }, { content: regexQuery }],
+    });
+    return searchResults;
   }
 }
 // las primeras cuatro valoraciones solo se agregarán a la lista de valoraciones si su valor es mayor o igual a 4.8. Después de la cuarta valoración, todas las valoraciones se tendrán en cuenta para calcular la nueva media. es asi la consigna????

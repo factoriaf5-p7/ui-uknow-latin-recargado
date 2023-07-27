@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
-import Login from "../../components/Login/Login";
+import Login from "../components/Login/Login";
 import { Link } from "react-router-dom";
-import './LoginPage.css'
+import './StylePages/LoginPage.css'
 
 export default function LoginPage() {
   return <div>

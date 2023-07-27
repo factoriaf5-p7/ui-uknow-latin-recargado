@@ -50,4 +50,5 @@ export declare class ContentController {
         _id: import("mongoose").Types.ObjectId;
     }>;
     rateContent(id: string, rateContentDto: RateContentDto): Promise<Content>;
+    searchContent(query: string): Promise<Content[]>;
 }

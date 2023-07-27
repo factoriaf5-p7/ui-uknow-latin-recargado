@@ -5,7 +5,6 @@ import './SearchBox.css';
 interface Content {
     _id: string;
     title: string;
-    // Otras propiedades que existan en la estructura de Content
 }
 
 const SearchBox: React.FC = () => {
@@ -16,11 +15,20 @@ const SearchBox: React.FC = () => {
         const query = event.target.value;
         setSearchQuery(query);
 
-        // Realiza la solicitud al servidor con el valor de búsqueda
-        fetch(`http://localhost:3000/api/V1/content/search/content?query=${encodeURIComponent(query)}`)
-            .then((response) => response.json())
-            .then((data) => setSearchResults(data))
-            .catch((error) => console.error('Error al realizar la búsqueda:', error));
+        // Realizar la solicitud al servidor con el valor de búsqueda
+        if (query) {
+            fetch(`http://localhost:3000/api/V1/content/search/content?query=${encodeURIComponent(query)}`)
+                .then((response) => response.json())
+                .then((data) => setSearchResults(data))
+                .catch((error) => console.error('Error al realizar la búsqueda:', error));
+        } else {
+            setSearchResults([]); // Limpiar los resultados si el campo de búsqueda está vacío
+        }
+    };
+
+    // Función para manejar el clic en un resultado y redireccionar a la página de detalles
+    const handleResultClick = (contentId: string) => {
+        window.location.href = `/content/${contentId}`;
     };
 
     return (
@@ -38,10 +46,11 @@ const SearchBox: React.FC = () => {
             />
             {searchResults.length > 0 && (
                 <div className="search-results">
-                    <h2>Resultados de la búsqueda:</h2>
                     <ul>
                         {searchResults.map((result) => (
-                            <li key={result._id}>{result.title}</li>
+                            <li key={result._id} onClick={() => handleResultClick(result._id)} style={{ cursor: 'pointer' }}>
+                                {result.title}
+                            </li>
                         ))}
                     </ul>
                 </div>
