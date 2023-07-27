@@ -1,3 +1,8 @@
+import Footer from "../components/Footer/Footer";
+
+
 export default function HomeNoUserPage() {
-  return <div>HomeNoUserPage</div>;
+  return <>
+  <Footer/> 
+</>;
 }
