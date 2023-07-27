@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent } from 'react';
-import { BiSearch } from 'react-icons/bi';
 import './SearchBox.css';
 
 interface Content {
@@ -33,22 +32,26 @@ const SearchBox: React.FC = () => {
 
     return (
         <div className="search-box">
-            <div className="search-button">
-                <div className="icon-container">
-                    <BiSearch size={24} color="#333" />
-                </div>
-            </div>
-            <input
-                type="text"
-                placeholder="Buscar..."
-                value={searchQuery}
-                onChange={handleInputChange}
-            />
+            <label className="search-input" htmlFor="searchInput">
+                <input
+                    type="text"
+                    id="searchInput"
+                    className={`form-control ${searchQuery && 'has-value'}`}
+                    placeholder="Buscar..."
+                    value={searchQuery}
+                    onChange={handleInputChange}
+                />
+            </label>
             {searchResults.length > 0 && (
                 <div className="search-results">
-                    <ul>
+                    <ul className="list-group">
                         {searchResults.map((result) => (
-                            <li key={result._id} onClick={() => handleResultClick(result._id)} style={{ cursor: 'pointer' }}>
+                            <li
+                                key={result._id}
+                                className="list-group-item list-group-item-action"
+                                onClick={() => handleResultClick(result._id)}
+                                style={{ cursor: 'pointer' }}
+                            >
                                 {result.title}
                             </li>
                         ))}
