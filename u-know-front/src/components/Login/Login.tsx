@@ -4,7 +4,11 @@ import {ChangeEvent, FormEvent, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../../services/user.service';
 import './Login.css'
+<<<<<<< HEAD
 import { useUserContext } from '../../UserContext';
+=======
+import { useUserContext, useWalletContext } from '../Header/UserContext';
+>>>>>>> 473a4326c2082e17a80243e6d81b58047649d8f4
 
 
 export default function Login() {
@@ -21,10 +25,23 @@ export default function Login() {
     }
     const handleSubmit = async (event: FormEvent<HTMLFormElement>)=>{
         event.preventDefault();  
-        console.log(formData)
+        //console.log(formData)
          const response = await authService.login(formData)
       localStorage.setItem('token', response.data.access_token)
+<<<<<<< HEAD
       setUserNameAfterLogin(formData.email);
+=======
+      localStorage.setItem('name', response.data.name)
+      localStorage.setItem('wallet_balance', response.data.wallet_balance)
+      //console.log(response)
+      
+      setUserNameAfterLogin(response.data.name);
+       navigate('/home-user') 
+       setFromData(initialState)  
+
+
+       setUserWalletAfterLogin(response.data.wallet_balance);
+>>>>>>> 473a4326c2082e17a80243e6d81b58047649d8f4
        navigate('/home-user') 
        setFromData(initialState)  
     }

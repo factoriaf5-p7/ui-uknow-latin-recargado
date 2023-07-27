@@ -1,3 +1,9 @@
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+
 export default function RateContentPage() {
-  return <div>RateContentPage</div>;
+  return <>
+  <Header/> 
+  <Footer/> 
+</>;
 }

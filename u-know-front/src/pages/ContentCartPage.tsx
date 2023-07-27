@@ -1,3 +1,9 @@
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+
 export default function ContentCartPage() {
-  return <div>ContentCartPage</div>;
+  return <>
+    <Header/> 
+    <Footer/> 
+  </>;
 }
