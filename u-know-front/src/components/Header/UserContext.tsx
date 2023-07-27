@@ -1,4 +1,5 @@
-import React, { createContext, useState, useContext } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 //LLAMADAS AL BACKEND DE NOMBRE Y WALLET_BALANCE
 
@@ -15,7 +16,7 @@ const UserContext = createContext<UserContextType>({
     setUserNameAfterLogin: () => { },
 });
 
-export function useUserContext() {
+ export function useUserContext() {
     return useContext(UserContext);
 }
  
@@ -40,15 +41,30 @@ export function useWalletContext() {
 
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
-    const [name, setUsername] = useState('');
-    const [wallet_balance, setUserWallet] = useState(0); 
+    const [name, setUsername] = useState(() => {
+        // Intentamos obtener el nombre del localStorage, si no existe, devuelve una cadena vacía.
+        return localStorage.getItem('username') || '';
+    });
+    const [wallet_balance, setUserWallet] = useState(() => {
+        // Intentamos obtener el saldo de la cartera del localStorage, si no existe, devuelve 0.
+        const storedBalance = localStorage.getItem('wallet_balance');
+        return storedBalance ? parseFloat(storedBalance) : 0;
+    });
 
     const setUserNameAfterLogin = (name: string) => {
         setUsername(name);
     };
     const setUserWalletAfterLogin = (wallet_balance: number) =>{
         setUserWallet(wallet_balance);
-    }
+    }; 
+    
+    // Guardar los datos en localStorage cada vez que cambien
+    useEffect(() => {
+        localStorage.setItem('username', name);
+    }, [name]);
+    useEffect(() => {
+        localStorage.setItem('wallet_balance', wallet_balance.toString());
+    }, [wallet_balance]);
 
     return (
         <UserContext.Provider

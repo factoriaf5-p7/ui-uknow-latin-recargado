@@ -4,7 +4,7 @@ import {ChangeEvent, FormEvent, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../../services/user.service';
 import './Login.css'
-import { useUserContext, useWalletContext } from '../UserAvatar/UserContext';
+import { useUserContext, useWalletContext } from '../Header/UserContext';
 
 
 export default function Login() {
@@ -23,12 +23,12 @@ export default function Login() {
     }
     const handleSubmit = async (event: FormEvent<HTMLFormElement>)=>{
         event.preventDefault();  
-        console.log(formData)
+        //console.log(formData)
          const response = await authService.login(formData)
       localStorage.setItem('token', response.data.access_token)
       localStorage.setItem('name', response.data.name)
       localStorage.setItem('wallet_balance', response.data.wallet_balance)
-      console.log(response)
+      //console.log(response)
       
       setUserNameAfterLogin(response.data.name);
        navigate('/home-user') 
