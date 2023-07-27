@@ -15,6 +15,27 @@ const UserContext = createContext<UserContextType>({
 export function useUserContext() {
     return useContext(UserContext);
 }
+///////////////////////////////////////////
+
+interface WalletContextType {
+    wallet_balance: number,
+    setUserWallet: (wallet_balance: number) => void;
+    setUserWalletAfterLogin: (wallet_balance: number) => void;
+}
+
+const WalletContext = createContext<WalletContextType>({
+    wallet_balance: 0,
+    setUserWallet: () => { },
+    setUserWalletAfterLogin: () => { },
+});
+
+export function useWalletContext() {
+    return useContext(WalletContext );
+}
+
+
+
+
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
     const [name, setUsername] = useState('');

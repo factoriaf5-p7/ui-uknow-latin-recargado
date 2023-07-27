@@ -10,5 +10,7 @@ export declare class AuthController {
     prueba(): void;
     login(req: Request): {
         access_token: string;
+        name: string;
+        wallet_balance: number;
     };
 }

@@ -34,5 +34,7 @@ export declare class AuthService {
     }>;
     generateToken(user: Partial<User>): {
         access_token: string;
+        name: string;
+        wallet_balance: number;
     };
 }
