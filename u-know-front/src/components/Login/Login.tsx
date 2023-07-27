@@ -4,8 +4,7 @@ import {ChangeEvent, FormEvent, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { authService } from '../../services/user.service';
 import './Login.css'
-/* import { useUserContext } from '../../UserContext'; */
-import { useUserContext, useWalletContext } from '../Header/UserContext';
+import { useUserContext } from '../Header/UserContext';
 
 
 export default function Login() {
@@ -35,9 +34,6 @@ export default function Login() {
       setUserNameAfterLogin(response.data.name);
        navigate('/home-user') 
        setFromData(initialState)  
-
-       setUserWalletAfterLogin(response.data.wallet_balance);
-
        navigate('/home-user') 
        setFromData(initialState)  
     }
