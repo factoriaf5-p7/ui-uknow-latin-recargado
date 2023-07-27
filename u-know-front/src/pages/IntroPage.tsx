@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
-import { BiSearch } from 'react-icons/bi';
-import './IntroPage.css';
+/* import { BiSearch } from 'react-icons/bi'; */
+import '../pages/StylePages/IntroPage.css';
 import heroImage from '../assets/fondo-uk.png';
 
 const IntroPage: React.FC = () => {
