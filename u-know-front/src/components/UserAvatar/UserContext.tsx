@@ -1,5 +1,8 @@
 import React, { createContext, useState, useContext } from 'react';
 
+//LLAMADAS AL BACKEND DE NOMBRE Y WALLET_BALANCE
+
+
 interface UserContextType {
     name: string;
     setUsername: (name: string) => void;
@@ -15,8 +18,7 @@ const UserContext = createContext<UserContextType>({
 export function useUserContext() {
     return useContext(UserContext);
 }
-///////////////////////////////////////////
-
+ 
 interface WalletContextType {
     wallet_balance: number,
     setUserWallet: (wallet_balance: number) => void;
@@ -39,14 +41,26 @@ export function useWalletContext() {
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
     const [name, setUsername] = useState('');
+    const [wallet_balance, setUserWallet] = useState(0); 
 
     const setUserNameAfterLogin = (name: string) => {
         setUsername(name);
     };
+    const setUserWalletAfterLogin = (wallet_balance: number) =>{
+        setUserWallet(wallet_balance);
+    }
 
     return (
-        <UserContext.Provider value={{ name, setUsername, setUserNameAfterLogin }}>
-            {children}
-        </UserContext.Provider>
+        <UserContext.Provider
+      value={{ name, setUsername, setUserNameAfterLogin }}
+    >
+      <WalletContext.Provider
+        value={{ wallet_balance, setUserWallet, setUserWalletAfterLogin }}
+      >
+        {children}
+      </WalletContext.Provider>
+    </UserContext.Provider>
     );
 }
+
+
