@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import './SearchBox.css';
+import { searchContent } from '../../services/content.service';
 
 interface Content {
     _id: string;
@@ -16,9 +17,8 @@ const SearchBox: React.FC = () => {
 
         // Realizar la solicitud al servidor con el valor de búsqueda
         if (query) {
-            fetch(`http://localhost:3000/api/V1/content/search/content?query=${encodeURIComponent(query)}`)
-                .then((response) => response.json())
-                .then((data) => setSearchResults(data))
+           searchContent(query)
+           .then((data) => setSearchResults(data))
                 .catch((error) => console.error('Error al realizar la búsqueda:', error));
         } else {
             setSearchResults([]); // Limpiar los resultados si el campo de búsqueda está vacío

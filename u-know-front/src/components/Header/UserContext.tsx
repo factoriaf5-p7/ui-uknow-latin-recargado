@@ -2,7 +2,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 //LLAMADAS AL BACKEND DE NOMBRE Y WALLET_BALANCE
-
+ 
 
 interface UserContextType {
     name: string;
