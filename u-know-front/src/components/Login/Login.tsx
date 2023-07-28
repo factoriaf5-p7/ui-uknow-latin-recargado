@@ -7,7 +7,7 @@ import { useUserContext } from '../Header/UserContext';
  
 
 export default function Login() {
- /*  const navigate = useNavigate(); */
+ const navigate = useNavigate();
   const initialState = { email: '', password: '' };
   const [formData, setFromData] = useState({ email: '', password: '' });
   const { setUserNameAfterLogin } = useUserContext();
@@ -29,7 +29,7 @@ export default function Login() {
       //console.log(response)
       
       setUserNameAfterLogin(response.data.name);
-      /*  navigate('/home-user')  */
+       navigate('/home-user') 
        setFromData(initialState)    
     }
 
