@@ -14,4 +14,7 @@
   --card2-gradient: linear-gradient(45deg, #ff4bdf, #8979ec);
   --card3-gradient: linear-gradient(45deg, #5ce3b1, #f90f0f);
   --card4-gradient: linear-gradient(45deg, #3649a9, #f2b3bb);
+  --uploadcontent: #ff50ef;
+  --mycourses: #fec747;
+  --purchasedcourses: #ff7082;
 }

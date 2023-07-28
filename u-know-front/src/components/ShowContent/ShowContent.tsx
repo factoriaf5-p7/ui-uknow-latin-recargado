@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { contentService } from "../../services/content.service";
 import { Link } from "react-router-dom";
 import "../../index.css";
+import { linkStyle } from "./ShowContentStyle";
 
 interface Course {
   title: string;
@@ -33,22 +34,18 @@ export default function ShowContent() {
   return (
     <div className="container colors">
       {/* <h1>Cursos Disponibles</h1> */}
-      <div className="row">
+      <div className="row m-4">
         {courses.map((course, index) => (
           <Link
-            className="mt-4 mb-4"
+            className="courses mt-2 mb-2"
             to={"/content-detail"}
             style={{
+              ...linkStyle,
               background: `var(--card${(index % 4) + 1}-gradient)`,
-              // Usamos el índice para alternar entre las variables CSS definidas en el archivo CSS
             }}
           >
             <h2>{course.title}</h2>
-            {/* <p>{course.description}</p> */}
-            <p>Price: ${course.price}</p>
-            {/* <p>Category: {course.category}</p> */}
-            {/* <p>Difficulty: {course.dificulty}</p> */}
-            {/* Mostrar más detalles del curso si es necesario */}
+            <p>€{course.price}</p>
           </Link>
         ))}
       </div>
