@@ -1,15 +1,15 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-/* import { AiOutlineBook } from 'react-icons/ai'; */
 import { FaBookOpen, FaSignOutAlt } from 'react-icons/fa';
 import './Footer.css';
+import "../UserAvatar/UserAvatar.css";
+import UserAvatar from '../UserAvatar/UserAvatar';
 
 const Footer: React.FC = () => {
     return (
         <footer>
             <ul>
-                <li>
- Avatar
+                <li className="App">
+                    <UserAvatar className="userAvatar" src="https://www.kindpng.com/picc/m/270-2706266_kepala-nobita-png-nobita-3d-head-png-transparent.png" alt="avatar"/>
                 </li>
                 <li>
                     <Link to="/content">
