@@ -1,17 +1,17 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-transform: none;
   text-decoration: none;
-  overflow: hidden;
+  /*   overflow: hidden; */
 }
 
-root {
-  --primary-gradient: linear-gradient(45deg, #FEC747, #FF57FF);
-  --secondary-gradient: linear-gradient(45deg, #4FDAB8, #844AFF);
-  --cardone-gradient: linear-gradient(45deg, #FF7082, #FFA94F);
-  --cardtwo-gradient: linear-gradient(45deg, #FF4BDF, #8979EC);
-  --cardthree-gradient: linear-gradient(45deg, #5CE3B1, #F90F0F);
-  --cardfour-gradient: linear-gradient(45deg, #3649A9, #F2B3BB);
+:root {
+  --primary-gradient: linear-gradient(45deg, #fec747, #ff57ff);
+  --secondary-gradient: linear-gradient(45deg, #4fdab8, #844aff);
+  --card1-gradient: linear-gradient(45deg, #ff7082, #ffa94f);
+  --card2-gradient: linear-gradient(45deg, #ff4bdf, #8979ec);
+  --card3-gradient: linear-gradient(45deg, #5ce3b1, #f90f0f);
+  --card4-gradient: linear-gradient(45deg, #3649a9, #f2b3bb);
 }

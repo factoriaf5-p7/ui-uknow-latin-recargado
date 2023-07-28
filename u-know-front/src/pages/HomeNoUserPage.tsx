@@ -1,8 +1,9 @@
-import React from 'react';
-import SearchBox from '../components/SearchBox/SearchBox';
-import logoImage from '../assets/logo-uk.png';
-import '../pages/StylePages/HomeNoUserPage.css'
-import FooterLogin from '../components/FooterLogin/FooterLogin';
+import React from "react";
+import SearchBox from "../components/SearchBox/SearchBox";
+import logoImage from "../assets/logo-uk.png";
+import "../pages/StylePages/HomeNoUserPage.css";
+import FooterLogin from "../components/FooterLogin/FooterLogin";
+import ShowContent from "../components/ShowContent/ShowContent";
 
 const Home: React.FC = () => {
   return (
@@ -11,9 +12,10 @@ const Home: React.FC = () => {
         <img src={logoImage} alt="Logo-UK" />
       </div>
       <SearchBox />
+      <ShowContent />
       <FooterLogin />
     </div>
   );
 };
 
-export default Home; 
+export default Home;
