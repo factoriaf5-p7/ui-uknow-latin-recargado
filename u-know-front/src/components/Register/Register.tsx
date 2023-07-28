@@ -24,7 +24,7 @@ export default function Register (){
             localStorage.setItem('user', JSON.stringify(response.data.data));
             setFromData(initialState);
             navigate('/login');
-        } catch (err) {
+        } catch (err) {Tito 
             setError('Email or username already exists');
         } 
     };
@@ -36,17 +36,17 @@ export default function Register (){
      
       <Form.Group className="mb-3" controlId="formBasicName" >
         <Form.Label>Name</Form.Label>
-        <Form.Control name='name' value={formData.name} onChange={handleChange} type="text" placeholder="Your name"/>
+        <Form.Control name='name' value={formData.name} onChange={handleChange} type="text" placeholder="Your name" required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control name='email' value={formData.email} onChange={handleChange}  type="mail" placeholder="name@example.com" className="bg-transparent" />
+        <Form.Control name='email' value={formData.email} onChange={handleChange}  type="mail" placeholder="name@example.com" className="bg-transparent" required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control name='password' value={formData.password} onChange={handleChange} type="password" placeholder="password" className="bg-transparent" />
+        <Form.Control name='password' value={formData.password} onChange={handleChange} type="password" placeholder="password" className="bg-transparent" required />
       </Form.Group>
 
       <Button type="submit" variant="primary" className="w-100" style={{ fontSize: '1.2rem' }}>

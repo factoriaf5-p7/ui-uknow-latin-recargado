@@ -1,3 +1,9 @@
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+
 export default function UploadPage() {
-  return <div>UploadPage</div>;
+  return <>
+  <Header/> 
+  <Footer/> 
+</>;
 }

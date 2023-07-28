@@ -9,9 +9,7 @@ const Footer: React.FC = () => {
         <footer>
             <ul>
                 <li>
-                    <Link to="/profile">
-                        <img src="/" alt="" />
-                    </Link>
+ Avatar
                 </li>
                 <li>
                     <Link to="/content">

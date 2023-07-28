@@ -41,6 +41,8 @@ let AuthService = exports.AuthService = class AuthService {
         };
         return {
             access_token: this.jwtService.sign(payload),
+            name: user.name,
+            wallet_balance: user.wallet_balance
         };
     }
 };

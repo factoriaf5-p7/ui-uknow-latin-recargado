@@ -81,6 +81,15 @@ let ContentController = exports.ContentController = class ContentController {
         }
         return this.contentService.rateContent(id, rateContentDto);
     }
+    async searchContent(query) {
+        try {
+            const searchResults = await this.contentService.searchContent(query);
+            return searchResults;
+        }
+        catch (error) {
+            throw new common_1.HttpException('Error al realizar la búsqueda', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 };
 __decorate([
     (0, common_1.Post)(':userId'),
@@ -170,10 +179,18 @@ __decorate([
     __metadata("design:paramtypes", [String, rateContent_dto_1.RateContentDto]),
     __metadata("design:returntype", Promise)
 ], ContentController.prototype, "rateContent", null);
+__decorate([
+    (0, public_decorator_1.Public)(),
+    (0, common_1.Get)('search/content'),
+    openapi.ApiResponse({ status: 200, type: [require("../schemas/content.schema").Content] }),
+    __param(0, (0, common_1.Query)('query')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ContentController.prototype, "searchContent", null);
 exports.ContentController = ContentController = __decorate([
     (0, swagger_1.ApiTags)('content'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, role_guard_1.RolesGuard),
-    (0, roles_decorator_1.Roles)(role_enum_1.Role.User),
     (0, common_1.Controller)('content'),
     __metadata("design:paramtypes", [content_service_1.ContentService,
         user_service_1.UserService])

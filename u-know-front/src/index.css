@@ -4,6 +4,7 @@
   box-sizing: border-box;
   text-transform: none;
   text-decoration: none;
+<<<<<<< HEAD
   overflow: hidden;
 }
 
@@ -14,4 +15,7 @@ root {
   --cardtwo-gradient: linear-gradient(45deg, #FF4BDF, #8979EC);
   --cardthree-gradient: linear-gradient(45deg, #5CE3B1, #F90F0F);
   --cardfour-gradient: linear-gradient(45deg, #3649A9, #F2B3BB);
+=======
+/*   overflow: hidden; */
+>>>>>>> 48f561a40ee05a7f9ba903dc238a451884df0102
 }

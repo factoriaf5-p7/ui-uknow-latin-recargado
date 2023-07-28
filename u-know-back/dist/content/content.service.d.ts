@@ -52,4 +52,5 @@ export declare class ContentService {
         _id: import("mongoose").Types.ObjectId;
     }>;
     rateContent(id: string, rateContentDto: RateContentDto): Promise<ContentDocument>;
+    searchContent(query: string): Promise<Content[]>;
 }

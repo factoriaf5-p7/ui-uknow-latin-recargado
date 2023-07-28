@@ -148,6 +148,13 @@ let ContentService = exports.ContentService = class ContentService {
         await content.save();
         return content;
     }
+    async searchContent(query) {
+        const regexQuery = new RegExp(query, 'i');
+        const searchResults = await this.contentModel.find({
+            $or: [{ title: regexQuery }, { content: regexQuery }],
+        });
+        return searchResults;
+    }
 };
 exports.ContentService = ContentService = __decorate([
     (0, common_1.Injectable)(),

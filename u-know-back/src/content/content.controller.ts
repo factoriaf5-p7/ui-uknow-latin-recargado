@@ -10,6 +10,7 @@ import {
   UseGuards,
   HttpException,
   HttpStatus,
+  Query,
 } from '@nestjs/common';
 import { ContentService } from './content.service';
 import { CreateContentDto } from '../content/dto/create-content.dto';
@@ -28,7 +29,7 @@ import { UserService } from '../user/user.service';
 
 @ApiTags('content')
 @UseGuards(JwtAuthGuard, RolesGuard)
-@Roles(Role.User)
+//@Roles(Role.User)
 @Controller('content')
 export class ContentController {
   constructor(
@@ -51,8 +52,7 @@ export class ContentController {
     return this.contentService.findUserContent(userId);
   }
 
-  
- @Roles(Role.User)
+  @Roles(Role.User)
   @Get()
   findAll(@Req() req: any) {
     console.log(req.user, 'user?');
@@ -71,7 +71,7 @@ export class ContentController {
   update(@Param('id') id: string, @Body() updateContentDto: UpdateContentDto) {
     return this.contentService.update(id, updateContentDto);
   }
-  
+
   //ALLOW REGISTERED USERS TO DELETE CONTENT
   @Delete(':id')
   delete(@Req() req, @Param('id') id: string) {
@@ -130,5 +130,18 @@ export class ContentController {
     }
     // Llamar al servicio solo si la validación es exitosa
     return this.contentService.rateContent(id, rateContentDto);
+  }
+  @Public()
+  @Get('search/content')
+  async searchContent(@Query('query') query: string) {
+    try {
+      const searchResults = await this.contentService.searchContent(query);
+      return searchResults;
+    } catch (error) {
+      throw new HttpException(
+        'Error al realizar la búsqueda',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }
