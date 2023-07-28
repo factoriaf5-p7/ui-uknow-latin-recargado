@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../../services/user.service';
 import './Login.css';
 import { useUserContext } from '../Header/UserContext';
-import { Image } from 'react-bootstrap';
+ 
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,13 +18,7 @@ export default function Login() {
             [event.target.name]: event.target.value 
         })
     }
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>)=>{
-        event.preventDefault();  
-        console.log(formData)
-         const response = await authService.login(formData)
-      localStorage.setItem('token', response.data.access_token)
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     //console.log(formData)
     const response = await authService.login(formData);
@@ -58,4 +52,4 @@ export default function Login() {
       </Button>
     </Form>
   );
-}
+  }
