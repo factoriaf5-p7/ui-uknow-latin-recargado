@@ -24,7 +24,7 @@ export default function Register (){
             localStorage.setItem('user', JSON.stringify(response.data.data));
             setFromData(initialState);
             navigate('/login');
-        } catch (err) {Tito 
+        } catch (err) { 
             setError('Email or username already exists');
         } 
     };
