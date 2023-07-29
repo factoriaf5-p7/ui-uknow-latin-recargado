@@ -1,5 +1,4 @@
 import { FC, ImgHTMLAttributes } from "react";
-import "./UserAvatar.css";
 
 interface UserAvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
