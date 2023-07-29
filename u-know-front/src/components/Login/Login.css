@@ -1,5 +1,3 @@
-
-
 /* Centrar el formulario */
 form {
     max-width: 400px;
@@ -21,4 +19,11 @@ form {
   .text-muted {
     font-size: 14px;
   }
-  
+  button.btn.btn-link{
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+    button.btn.btn-link:hover{
+   color: var(--uploadcontent);
+  }
