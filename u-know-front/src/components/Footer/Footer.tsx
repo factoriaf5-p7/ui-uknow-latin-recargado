@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaBookOpen, FaSignOutAlt } from 'react-icons/fa';
 import './Footer.css';
-import "../UserAvatar/UserAvatar.css";
 import UserAvatar from '../UserAvatar/UserAvatar';
 
 const Footer: React.FC = () => {

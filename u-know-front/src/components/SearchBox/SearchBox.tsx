@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent } from 'react';
 import './SearchBox.css';
 import { searchContent } from '../../services/content.service';
 
@@ -7,7 +7,7 @@ interface Content {
     title: string;
 }
 
-const SearchBox: React.FC = () => {
+const SearchBox = () => {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [searchResults, setSearchResults] = useState<Content[]>([]);
 

@@ -13,36 +13,3 @@
     padding: 0 200px;
   }
 }
-/* .search-box {
-  position: relative;
-  width: 100%;
-}
-
-.search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: #f0f0f0; 
-  border: 1px solid #ccc;
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-.search-results ul {
-  margin: 0;
-  padding: 0;
-}
-
-.search-results li {
-  padding: 8px;
-  list-style: none;
-}
-
-
-.search-results li:hover {
-  background-color: #ddd; 
-}
- */
