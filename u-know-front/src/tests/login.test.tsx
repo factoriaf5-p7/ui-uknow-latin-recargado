@@ -2,10 +2,20 @@ import { describe, test, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Login from "../components/Login/Login";
 import { authService } from "../services/user.service";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Login component", () => {
     beforeEach(() => {
-        render(<Login />);
+      render(
+        <BrowserRouter>
+          <Login />
+        </BrowserRouter>
+      );
+    });
+  
+    afterEach(() => {
+      // Restaura localStorage después de cada prueba
+      localStorage.clear();
     });
 
     test("updates form data when input values change", () => {
@@ -18,32 +28,37 @@ describe("Login component", () => {
         expect(emailInput.value).toBe("test@example.com");
         expect(passwordInput.value).toBe("testpassword");
     });
-
+  
     test("calls authService.login when form is submitted", async () => {
-        const emailInput = screen.getByLabelText("Email address") as HTMLInputElement;
-        const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
-        const submitButton = screen.getByRole("button", { name: "Iniciar sesión" });
-
-        fireEvent.change(emailInput, { target: { value: "test@example.com" } });
-        fireEvent.change(passwordInput, { target: { value: "testpassword" } });
-
-        const mockResponse = {
-            data: {
-                access_token: "mocked-token",
-                name: "John Doe",
-                wallet_balance: 1000,
-            },
-        };
-        authService.login = vitest.fn().mockResolvedValue(mockResponse);
-
-        fireEvent.click(submitButton);
-
-        expect(authService.login).toHaveBeenCalledWith({
-            email: "test@example.com",
-            password: "testpassword",
-        });
-
-        // Simulate the response from authService.login and check the localStorage
-        expect(localStorage.getItem("name")).toBe("John Doe");
+      const emailInput = screen.getByLabelText("Email address") as HTMLInputElement;
+      const passwordInput = screen.getByLabelText("Password") as HTMLInputElement;
+      const submitButton = screen.getByRole("button", { name: "Iniciar sesión" });
+  
+      fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+      fireEvent.change(passwordInput, { target: { value: "testpassword" } });
+  
+      const mockResponse = {
+        data: {
+          access_token: "mocked-token",
+          name: "Tito", // Cambiamos el nombre de "John Doe" a "Tito"
+          wallet_balance: 1000,
+        },
+      };
+  
+      // Simular la respuesta de la función authService.login
+      authService.login = vitest.fn().mockResolvedValue(mockResponse);
+  
+      fireEvent.click(submitButton);
+  
+      expect(authService.login).toHaveBeenCalledWith({
+        email: "test@example.com",
+        password: "testpassword",
+      });
+  
+      // Simular la espera de la promesa
+      await screen.findByText("Iniciar sesión");
+  
+      // Verificar que se haya almacenado correctamente el nombre en localStorage
+      expect(localStorage.getItem("name")).toBe("Tito"); // Debe ser igual a "Tito"
     });
-});
+  });
