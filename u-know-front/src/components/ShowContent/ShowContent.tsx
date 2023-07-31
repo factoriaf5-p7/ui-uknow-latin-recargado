@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import "../../index.css";
 import { linkStyle } from "./ShowContentStyle";
 
-interface Course {
+export interface Course {
+  _id: string;
   title: string;
   description: string;
   price: number;
@@ -13,14 +14,17 @@ interface Course {
   content: string;
 }
 
-export default function ShowContent() {
+interface ShowContentProps {
+  searchQuery: string;
+}
+
+export default function ShowContent({ searchQuery }: ShowContentProps) {
   const [courses, setCourses] = useState<Course[]>([]);
 
   useEffect(() => {
-    // Función asincrónica para obtener los cursos desde la API
     const fetchCourses = async () => {
       try {
-        const coursesData = await contentService.getCourses();
+        const coursesData: Course[] = await contentService.getCourses();
         setCourses(coursesData);
         console.log(coursesData);
       } catch (error) {
@@ -28,21 +32,26 @@ export default function ShowContent() {
       }
     };
 
-    fetchCourses(); // Llama a la función para obtener los cursos cuando el componente se monte
+    fetchCourses();
   }, []);
+
+  const filteredCourses = courses.filter(
+    (course) =>
+      course.title.toLowerCase().includes(searchQuery?.toLowerCase() || "")
+  );
 
   return (
     <div className="container colors">
-      {/* <h1>Cursos Disponibles</h1> */}
       <div className="row m-4">
-        {courses.map((course, index) => (
+        {filteredCourses.map((course, index) => (
           <Link
             className="courses mt-2 mb-2"
-            to={"/content-detail"}
+            to={`/content-detail/${course._id}`}
             style={{
               ...linkStyle,
               background: `var(--card${(index % 4) + 1}-gradient)`,
             }}
+            key={course._id}
           >
             <h2>{course.title}</h2>
             <p>€{course.price}</p>
