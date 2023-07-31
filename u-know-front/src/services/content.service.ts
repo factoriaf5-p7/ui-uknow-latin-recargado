@@ -34,3 +34,11 @@ export const searchContent = (query: string): Promise<Content[]> => {
             return [];
         });
 };
+ 
+export const buyContentUser = { buyContent(id: string, contentId: string) {
+  return axios.post(
+    `http://localhost:3000/api/v1/auth/buyContent/${id}/${contentId}`,
+    { headers: { 'Content-Type': 'application/JSON' } }
+  );
+},
+};
