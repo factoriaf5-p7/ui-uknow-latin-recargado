@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
-import { contentService } from "../../services/content.service";
-import { Link } from "react-router-dom";
-import "../../index.css";
-import { linkStyle } from "./ShowContentStyle";
+import { Link } from 'react-router-dom';
+import '../../index.css';
+import { linkStyle } from './ShowContentStyle';
 
 export interface Course {
   _id: string;
@@ -15,35 +13,14 @@ export interface Course {
 }
 
 interface ShowContentProps {
-  searchQuery: string;
+  courses: Course[] | undefined;
 }
 
-export default function ShowContent({ searchQuery }: ShowContentProps) {
-  const [courses, setCourses] = useState<Course[]>([]);
-
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const coursesData: Course[] = await contentService.getCourses();
-        setCourses(coursesData);
-        console.log(coursesData);
-      } catch (error) {
-        console.error("Error fetching courses:", error);
-      }
-    };
-
-    fetchCourses();
-  }, []);
-
-  const filteredCourses = courses.filter(
-    (course) =>
-      course.title.toLowerCase().includes(searchQuery?.toLowerCase() || "")
-  );
-
+export default function ShowContent({ courses }: ShowContentProps) {
   return (
     <div className="container colors">
       <div className="row m-4">
-        {filteredCourses.map((course, index) => (
+        {courses?.map((course, index) => (
           <Link
             className="courses mt-2 mb-2"
             to={`/content-detail/${course._id}`}

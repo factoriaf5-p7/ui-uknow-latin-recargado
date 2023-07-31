@@ -1,9 +1,30 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import './SearchBox.css';
-import ShowContent from '../ShowContent/ShowContent';
+import ShowContent, { Course } from '../ShowContent/ShowContent';
+import { contentService } from '../../services/content.service';
 
 const SearchBox = () => {
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [courses, setCourses] = useState<Course[]>([]);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const coursesData: Course[] = await contentService.getCourses();
+                setCourses(coursesData);
+                console.log(coursesData);
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+            }
+        };
+
+        fetchCourses();
+    }, []);
+
+    const filteredCourses = courses.filter(
+        (course) =>
+            course.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const query = event.target.value;
@@ -22,7 +43,7 @@ const SearchBox = () => {
                     onChange={handleInputChange}
                 />
             </label>
-            <ShowContent searchQuery={searchQuery} />
+            <ShowContent courses={filteredCourses} />
         </div>
     );
 };
