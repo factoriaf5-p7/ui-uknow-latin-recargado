@@ -8,17 +8,17 @@ interface Content {
 }
 
 const SearchBox = () => {
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [searchQuery, setSearchQuery] = useState<string>(''); // pa´almacenar el valor del campo de búsqueda
     const [searchResults, setSearchResults] = useState<Content[]>([]);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const query = event.target.value;
-        setSearchQuery(query);
+        const query = event.target.value; // Obtener el valor del campo de búsqueda
+        setSearchQuery(query); // Actualizar el estado de búsqueda con el valor del campo de búsqueda
 
         // Realizar la solicitud al servidor con el valor de búsqueda
-        if (query) {
+        if (query) { // Si el campo de búsqueda no está vacío
            searchContent(query)
-           .then((data) => setSearchResults(data))
+           .then((data) => setSearchResults(data)) // Actualizar el estado de resultados de búsqueda con los resultados de búsqueda
                 .catch((error) => console.error('Error al realizar la búsqueda:', error));
         } else {
             setSearchResults([]); // Limpiar los resultados si el campo de búsqueda está vacío
