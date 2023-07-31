@@ -11,3 +11,4 @@ export const registerService = {signup(user: {name:string; email:string; passwor
     return axios.post('http://localhost:3000/api/v1/auth/signup',
      user, {headers:{'Content-Type': 'application/JSON'}}) 
 }}
+
