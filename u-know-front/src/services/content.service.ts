@@ -2,13 +2,21 @@ import axios from "axios";
 
 //connection for all content
 
-interface Course {
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  dificulty: number;
-  content: string;
+export interface Course {
+  title: string
+  description: string
+  price: number
+  category: string
+  dificulty: number
+  ratings: Array<number>
+  comments: Array <Type>
+}
+export interface Type {
+  title:string
+  comment:string
+  username:string
+  _id:string
+
 }
 
 export const contentService = {
@@ -55,7 +63,7 @@ export const searchContent = (query: string): Promise<Content[]> => {
  
 export const buyContentUser = { buyContent(id: string, contentId: string) {
   return axios.post(
-    `http://localhost:3000/api/v1/auth/buyContent/${id}/${contentId}`,
+    `http://localhost:3000/api/v1/auth/${id}/buy/${contentId}`,
     { headers: { 'Content-Type': 'application/JSON' } }
   );
 },

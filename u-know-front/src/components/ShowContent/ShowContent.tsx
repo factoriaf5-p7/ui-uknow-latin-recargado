@@ -1,54 +1,58 @@
-import { useEffect, useState } from "react";
-import { contentService } from "../../services/content.service";
-import { Link } from "react-router-dom";
-import "../../index.css";
-import { linkStyle } from "./ShowContentStyle";
+import { useEffect, useState } from 'react'
+import { Course, contentService } from '../../services/content.service'
+import { Link } from 'react-router-dom'
+import '../../index.css'
+import { linkStyle } from './ShowContentStyle'
+import Modals from '../Modales/Modals'
 
-interface Course {
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  dificulty: number;
-  content: string;
-}
+
+
 
 export default function ShowContent() {
-  const [courses, setCourses] = useState<Course[]>([]);
+  const [courses, setCourses] = useState<Course[]>([])
 
   useEffect(() => {
     // Función asincrónica para obtener los cursos desde la API
     const fetchCourses = async () => {
       try {
-        const coursesData = await contentService.getCourses();
-        setCourses(coursesData);
-        console.log(coursesData);
+        const coursesData:Course[] = await contentService.getCourses()
+        setCourses(coursesData)
+        console.log(coursesData)
       } catch (error) {
-        console.error("Error fetching courses:", error);
+        console.error('Error fetching courses:', error)
       }
-    };
+    }
 
-    fetchCourses(); // Llama a la función para obtener los cursos cuando el componente se monte
-  }, []);
+    fetchCourses() // Llama a la función para obtener los cursos cuando el componente se monte
+  }, [])
 
   return (
     <div className="container colors">
       {/* <h1>Cursos Disponibles</h1> */}
       <div className="row m-4">
         {courses.map((course, index) => (
-          <Link
+          <div
             className="courses mt-2 mb-2"
-            to={"/content-detail"}
+            /*to={"/content-detail"}*/
             style={{
               ...linkStyle,
               background: `var(--card${(index % 4) + 1}-gradient)`,
             }}
           >
+            <Modals />
             <h2>{course.title}</h2>
             <p>€{course.price}</p>
-          </Link>
+            <p>{course.description}</p>
+            {course.comments.length > 0 && (
+              <div>
+                 <p>title {course.comments[0].title}</p>
+                <p>Por: {course.comments[0].username}</p>
+                <p>{course.comments[0].comment}</p>
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>
-  );
+  )
 }
