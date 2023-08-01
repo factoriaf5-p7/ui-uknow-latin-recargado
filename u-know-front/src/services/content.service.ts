@@ -54,12 +54,13 @@ export const buyContentUser = { buyContent(id: string, contentId: string) {
 };
 
 //connection for get all create content
-export const getUserContents = async (userId: string): Promise<Content[]> => {
+export const getUserContents = async (user: string): Promise<Content[]> => {
   try {
     const response = await axios.get<Content[]>(
-      `http://localhost:3000/api/v1/content/user/${userId}`,
+      `http://localhost:3000/api/v1/content/user/${user}`,
       {
         headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
       }
