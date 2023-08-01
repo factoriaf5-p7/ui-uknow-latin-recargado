@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import ModalLogin from './ModalLogin';
-import ModalNoBalance from './ModalNoBalance';
-import ModalConfirmPurchase from './ModalConfirmPurchase';
+import React, { useState } from "react";
+import Modal from "react-modal";
+import ModalLogin from "./ModalLogin";
+import ModalNoBalance from "./ModalNoBalance";
+import ModalConfirmPurchase from "./ModalConfirmPurchase";
 
 interface ModalPurchaseProps {
   isOpen: boolean;
@@ -12,7 +12,7 @@ interface ModalPurchaseProps {
   onLogin: () => void;
 }
 
-const ModalPurchase: React.FC<ModalPurchaseProps> = ({
+export const ModalPurchase: React.FC<ModalPurchaseProps> = ({
   isOpen,
   onRequestClose,
   isLoggedIn,
@@ -40,16 +40,19 @@ const ModalPurchase: React.FC<ModalPurchaseProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel="Purchase course">
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      contentLabel="Purchase course"
+    >
       <h1>Title</h1>
       <h2>Author</h2>
       <h3>Rating</h3> {/* traer rating */}
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, labore id temporibus ratione
-        voluptatem deserunt ducimus ea alias ad. Maiores assumenda sequi quam id sint neque iure at
-        accusantium animi.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, labore
+        id temporibus ratione voluptatem deserunt ducimus ea alias ad. Maiores
+        assumenda sequi quam id sint neque iure at accusantium animi.
       </p>
-
       <div>
         <h1>$30</h1>
         <button onClick={handleBuyClick}>Buy</button>
@@ -59,13 +62,20 @@ const ModalPurchase: React.FC<ModalPurchaseProps> = ({
         <h4>Comments</h4>
         <p>///////</p> {/* ver de traer la lógica de los comentarios aquí */}
       </div>
-
       {/* ModalLogin */}
-      {showLoginModal && <ModalLogin isOpen={true} onRequestClose={() => setShowLoginModal(false)} />}
-
+      {showLoginModal && (
+        <ModalLogin
+          isOpen={true}
+          onRequestClose={() => setShowLoginModal(false)}
+        />
+      )}
       {/* ModalNoBalance */}
-      {showNoBalanceModal && <ModalNoBalance isOpen={true} onRequestClose={() => setShowNoBalanceModal(false)} />}
-
+      {showNoBalanceModal && (
+        <ModalNoBalance
+          isOpen={true}
+          onRequestClose={() => setShowNoBalanceModal(false)}
+        />
+      )}
       {/* ModalConfirmPurchase */}
       {showConfirmModal && (
         <ModalConfirmPurchase
@@ -77,5 +87,3 @@ const ModalPurchase: React.FC<ModalPurchaseProps> = ({
     </Modal>
   );
 };
-
-export default ModalPurchase;

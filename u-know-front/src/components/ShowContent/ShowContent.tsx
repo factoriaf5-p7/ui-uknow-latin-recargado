@@ -38,7 +38,7 @@ export default function ShowContent() {
         {courses.map((course, index) => (
           <Link
             className="courses mt-2 mb-2"
-            to={"/content-detail"}
+            to={"/modalpurchase"}
             style={{
               ...linkStyle,
               background: `var(--card${(index % 4) + 1}-gradient)`,
