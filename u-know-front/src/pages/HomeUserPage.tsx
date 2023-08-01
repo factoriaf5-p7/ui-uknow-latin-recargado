@@ -9,7 +9,7 @@ const Home: React.FC = () => {
     <div>
       <Header />
       <SearchBox />
-      <ShowContent />
+      <ShowContent courses={undefined} />
       <Footer />
     </div>
   );

@@ -18,7 +18,7 @@ const EditContent = () => {
 
     return (
         <div>
-            <h1>My Contents</h1>
+            <h1>Mis cursos</h1>
             <ul>
                 {contents.map((content) => ( //recorro la lista de contenidos del usuario
                     <li key={content._id}>{content.title}</li> //muestro el titulo de cada contenido

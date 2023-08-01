@@ -43,26 +43,26 @@ export default function Login() {
     <Form onSubmit={handleSubmit}>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Correo electónico</Form.Label>
         <Form.Control
           name="email"
           value={formData.email}
           onChange={handleChange}
           type="email"
-          placeholder="Enter email"
+          placeholder="Correo electrónico..."
           required
         />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Contraseña</Form.Label>
         <Form.Control
           name="password"
           value={formData.password}
           onChange={handleChange}
           type="password"
-          placeholder="Password"
+          placeholder="Contraseña..."
           required
         />
       </Form.Group>

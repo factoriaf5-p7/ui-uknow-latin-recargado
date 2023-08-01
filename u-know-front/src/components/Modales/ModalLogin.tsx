@@ -20,10 +20,10 @@ const ModalLogin: React.FC<ModalLoginProps> = ({ isOpen, onRequestClose }) => {
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel="Login">
-      <h1>You have to be registered or log in to buy the course</h1>
-      <button onClick={handleLoginClick}>Login</button>
-      <button onClick={onRequestClose}>Close</button>
-      <button onClick={handleRegisterClick}>Register</button>
+      <h1>Necesitas estar registrado para poder comprar este curso</h1>
+      <button onClick={handleLoginClick}>Iniciar sesión</button>
+      <button onClick={onRequestClose}>Cerrar</button>
+      <button onClick={handleRegisterClick}>Registrarme</button>
     </Modal>
   );
 };

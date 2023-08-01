@@ -10,9 +10,9 @@ export default function LoginPage() {
       </div>
       <Login/>
       <div className="login">
-        <p>You do not have an account?</p>
+        <p>¿No tienes cuenta?</p>
         <Link to="/register">
-        <Button variant="link" >Register me</Button>
+        <Button variant="link" >Regístrate</Button>
         </Link>
       </div>
     </div>;

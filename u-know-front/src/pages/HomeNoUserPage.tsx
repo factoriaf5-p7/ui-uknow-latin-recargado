@@ -12,7 +12,7 @@ const Home: React.FC = () => {
         <img src={logoImage} alt="Logo-UK" />
       </div>
       <SearchBox />
-      <ShowContent />
+      <ShowContent courses={undefined} />
       <FooterLogin />
     </div>
   );

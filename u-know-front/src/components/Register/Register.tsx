@@ -29,7 +29,7 @@ export default function Register() {
       setFromData(initialState);
       navigate("/login");
     } catch (err) {
-      setError("Email or username already exists");
+      setError("El correo o usuario ya existe");
     }
   };
 
@@ -39,38 +39,38 @@ export default function Register() {
         {error && <Alert variant="danger">{error}</Alert>}
 
         <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Nombre</Form.Label>
           <Form.Control
             name="name"
             value={formData.name}
             onChange={handleChange}
             type="text"
-            placeholder="Your name"
+            placeholder="Nombre "
             required
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>Correo electónico</Form.Label>
           <Form.Control
             name="email"
             value={formData.email}
             onChange={handleChange}
             type="mail"
-            placeholder="name@example.com"
+            placeholder="nombre@ejemplo.com"
             className="bg-transparent"
             required
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Contraseña</Form.Label>
           <Form.Control
             name="password"
             value={formData.password}
             onChange={handleChange}
             type="password"
-            placeholder="password"
+            placeholder="contraseña"
             className="bg-transparent"
             required
           />
@@ -82,7 +82,7 @@ export default function Register() {
           className="w-100"
           style={{ fontSize: "1.2rem" }}
         >
-          Join Now
+        Enviar
         </Button>
       </Form>
     </>

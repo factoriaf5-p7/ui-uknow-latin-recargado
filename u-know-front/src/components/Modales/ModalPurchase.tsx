@@ -45,8 +45,8 @@ export const ModalPurchase: React.FC<ModalPurchaseProps> = ({
       onRequestClose={onRequestClose}
       contentLabel="Purchase course"
     >
-      <h1>Title</h1>
-      <h2>Author</h2>
+      <h1>Titulo</h1>
+      <h2>Autor</h2>
       <h3>Rating</h3> {/* traer rating */}
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, labore
@@ -54,12 +54,12 @@ export const ModalPurchase: React.FC<ModalPurchaseProps> = ({
         assumenda sequi quam id sint neque iure at accusantium animi.
       </p>
       <div>
-        <h1>$30</h1>
-        <button onClick={handleBuyClick}>Buy</button>
-        <button onClick={onRequestClose}>Close</button>
+        <h1>uK30</h1>
+        <button onClick={handleBuyClick}>Comprar</button>
+        <button onClick={onRequestClose}>Cerrar</button>
       </div>
       <div>
-        <h4>Comments</h4>
+        <h4>Comentarios</h4>
         <p>///////</p> {/* ver de traer la lógica de los comentarios aquí */}
       </div>
       {/* ModalLogin */}

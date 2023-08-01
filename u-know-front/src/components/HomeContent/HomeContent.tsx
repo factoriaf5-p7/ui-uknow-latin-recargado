@@ -12,17 +12,17 @@ export default function HomeContent() {
     <div className="container">
       <div className="row m-2 mt-4">
         <Link to={"/upload"} className="courses" style={createCourseStyle}>
-          CREATE COURSES
+          CREAR CURSO
         </Link>
         <Link to={"/mycontent"} className="courses" style={myCoursesStyle}>
-          MY COURSES
+        MIS CURSOS 
         </Link>
         <Link
           to={"/contentcart"}
           className="courses"
           style={purchasedCoursesStyle}
         >
-          PURCHASED COURSES
+         CURSOS COMPRADOS
         </Link>
       </div>
     </div>
