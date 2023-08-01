@@ -1,1 +1,0 @@
-/*  para mostrar más información del contenido */

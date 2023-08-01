@@ -1,19 +1,29 @@
+
 import axios, { AxiosError } from 'axios';
 
-export const updateContent = async (userId: string, _contentId: string, contentData: unknown) => {
+export interface ContentData {
+    title: string;
+    description: string;
+    price: number;
+    category: string;
+    difficulty: number;
+    content: string;
+}
+
+export const CreateContent = async (userId: string, contentData: ContentData) => {
     const url = `http://localhost:3000/api/v1/content/${userId}`;
     try {
-        const response = await axios.patch(url, contentData);
+        const response = await axios.post(url, contentData);
         return response.data;
     } catch (error) {
         if (isAxiosError(error)) {
-            throw new Error('Error al actualizar el contenido: ' + error.message);
+            throw new Error('Error al crear el contenido: ' + error.message);
         } else {
-            throw new Error('Error desconocido al actualizar el contenido.');
+            throw new Error('Error desconocido al crear el contenido.');
         }
     }
 };
 
 function isAxiosError(error: unknown): error is AxiosError {
-    return error.isAxiosError === true;
+    return (error as AxiosError).isAxiosError === true;
 }

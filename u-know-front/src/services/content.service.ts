@@ -1,8 +1,11 @@
 import axios from "axios";
 import { Course } from "../components/ShowContent/ShowContent";
 
+export interface Content {
+  _id: string;
+  title: string;
+}
 //connection for all content
-
 
 export const contentService = {
   getCourses: async (): Promise<Course[]> => {
@@ -25,12 +28,8 @@ export const contentService = {
   },
 };
 
-//connection for search content
 
-interface Content {
-  _id: string;
-  title: string;
-}
+//connection for search content
 
 export const searchContent = (query: string): Promise<Content[]> => {
   return axios
@@ -52,4 +51,22 @@ export const buyContentUser = { buyContent(id: string, contentId: string) {
     { headers: { 'Content-Type': 'application/JSON' } }
   );
 },
+};
+
+//connection for get all create content
+export const getUserContents = async (userId: string): Promise<Content[]> => {
+  try {
+    const response = await axios.get<Content[]>(
+      `http://localhost:3000/api/v1/content/user/${userId}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    return response.data; // si hay exito, aquí se retorna la data de la respuesta
+  } catch (error) {
+    console.error("Error fetching user contents:", error);
+    throw error;
+  }
 };
