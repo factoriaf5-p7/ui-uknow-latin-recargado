@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
+    "@uiw/react-md-editor": "^3.23.4",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
     "jsdom": "^22.1.0",
