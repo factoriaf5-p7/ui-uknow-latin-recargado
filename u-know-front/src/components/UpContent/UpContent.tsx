@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { CreateContent, ContentData } from "../../services/upload.service";
 import "./UpContent.css";
+import ContentEdit from "./ContentEdit";
 
 const ContentForm = () => {
   //obtiene el nombre del usuario
@@ -96,16 +97,14 @@ const ContentForm = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formContent">
-          <Form.Label>Contenido Completo</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={6}
-            placeholder="Ingrese el contenido completo"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-          />
-        </Form.Group>
+  <Form.Label>Contenido Completo</Form.Label>
+  <ContentEdit
+    value={content}
+    onChange={(val) => setContent(val)} // Cambiar a esta función para guardar el valor en el estado del componente ContentForm
+    required
+  />
+</Form.Group>
+
 
         <Button variant="primary" type="submit">
           Enviar
