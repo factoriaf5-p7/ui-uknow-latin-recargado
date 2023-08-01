@@ -1,33 +1,34 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import './SearchBox.css';
-import { searchContent } from '../../services/content.service';
-
-interface Content {
-    _id: string;
-    title: string;
-}
+import ShowContent, { Course } from '../ShowContent/ShowContent';
+import { contentService } from '../../services/content.service';
 
 const SearchBox = () => {
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchResults, setSearchResults] = useState<Content[]>([]);
+    const [courses, setCourses] = useState<Course[]>([]);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const coursesData: Course[] = await contentService.getCourses();
+                setCourses(coursesData);
+                console.log(coursesData);
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+            }
+        };
+
+        fetchCourses();
+    }, []);
+
+    const filteredCourses = courses.filter(
+        (course) =>
+            course.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const query = event.target.value;
         setSearchQuery(query);
-
-        // Realizar la solicitud al servidor con el valor de búsqueda
-        if (query) {
-           searchContent(query)
-           .then((data) => setSearchResults(data))
-                .catch((error) => console.error('Error al realizar la búsqueda:', error));
-        } else {
-            setSearchResults([]); // Limpiar los resultados si el campo de búsqueda está vacío
-        }
-    };
-
-    // Función para manejar el clic en un resultado y redireccionar a la página de detalles
-    const handleResultClick = (contentId: string) => {
-        window.location.href = `/content/${contentId}`;
     };
 
     return (
@@ -42,22 +43,7 @@ const SearchBox = () => {
                     onChange={handleInputChange}
                 />
             </label>
-            {searchResults.length > 0 && (
-                <div className="search-results">
-                    <ul className="list-group">
-                        {searchResults.map((result) => (
-                            <li
-                                key={result._id}
-                                className="list-group-item list-group-item-action"
-                                onClick={() => handleResultClick(result._id)}
-                                style={{ cursor: 'pointer' }}
-                            >
-                                {result.title}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
+            <ShowContent courses={filteredCourses} />
         </div>
     );
 };
