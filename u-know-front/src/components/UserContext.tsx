@@ -2,9 +2,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 
 //LLAMADAS AL BACKEND DE NOMBRE Y WALLET_BALANCE
- 
-
-interface UserContextType {
+ interface UserContextType {
     name: string;
     setUsername: (name: string) => void;
     setUserNameAfterLogin: (name: string) => void;
@@ -35,9 +33,6 @@ const WalletContext = createContext<WalletContextType>({
 export function useWalletContext() {
     return useContext(WalletContext );
 }
-
-
-
 
 
 export function UserProvider({ children }: { children: React.ReactNode }) {

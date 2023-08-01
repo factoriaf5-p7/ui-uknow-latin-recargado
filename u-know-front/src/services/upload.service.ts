@@ -1,4 +1,3 @@
-
 import axios, { AxiosError } from 'axios';
 
 export interface ContentData {
@@ -10,10 +9,14 @@ export interface ContentData {
     content: string;
 }
 
-export const CreateContent = async (userId: string, contentData: ContentData) => {
-    const url = `http://localhost:3000/api/v1/content/${userId}`;
+export const CreateContent = async (user: string | null, contentData: ContentData) => {
+    const url = `http://localhost:3000/api/v1/content/${user}`;
     try {
-        const response = await axios.post(url, contentData);
+        const response = await axios.post(url, contentData, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
         return response.data;
     } catch (error) {
         if (isAxiosError(error)) {
@@ -27,3 +30,4 @@ export const CreateContent = async (userId: string, contentData: ContentData) =>
 function isAxiosError(error: unknown): error is AxiosError {
     return (error as AxiosError).isAxiosError === true;
 }
+ 

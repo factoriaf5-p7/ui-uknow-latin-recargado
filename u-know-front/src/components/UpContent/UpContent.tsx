@@ -1,10 +1,9 @@
-// UpContent.tsx
-
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { CreateContent, ContentData } from '../../services/upload.service';
 
-const ContentForm: React.FC = () => {
+
+const ContentForm = () => { //obtiene el nombre del usuario
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
@@ -15,15 +14,16 @@ const ContentForm: React.FC = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData: ContentData = {
-            title,
-            description,
-            price: parseFloat(price),
-            category,
-            difficulty: parseInt(difficulty),
-            content,
+            title: "",
+            description: "",
+            price: 0,
+            category: "",
+            difficulty: 0,
+            content: "",
         };
 
-        CreateContent('userId', formData)
+        const user: string | null = localStorage.getItem('user_id');
+        CreateContent(user, formData) //llama a la función de upload.service.ts
             .then((response) => {
                 console.log('Solicitud exitosa:', response.data);
             })
