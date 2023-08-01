@@ -54,6 +54,7 @@ export class ContentController {
     return this.contentService.findUserContent(userId);
   }
 
+  //
   @Roles(Role.User)
   @Get()
   findAll(@Req() req: any) {
