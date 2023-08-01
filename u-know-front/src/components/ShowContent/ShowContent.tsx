@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import '../../index.css';
-import { linkStyle } from './ShowContentStyle';
+import { Link } from "react-router-dom";
+import "../../index.css";
+import { linkStyle } from "./ShowContentStyle";
 
 export interface Course {
   _id: string;
@@ -23,7 +23,7 @@ export default function ShowContent({ courses }: ShowContentProps) {
         {courses?.map((course, index) => (
           <Link
             className="courses mt-2 mb-2"
-            to={`/content-detail/${course._id}`}
+            to={"/modalpurchase"}
             style={{
               ...linkStyle,
               background: `var(--card${(index % 4) + 1}-gradient)`,
