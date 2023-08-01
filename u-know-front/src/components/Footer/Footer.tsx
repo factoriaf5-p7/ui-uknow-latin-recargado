@@ -7,6 +7,9 @@ const Footer: React.FC = () => {
   const handleLogout = () => {
     // Eliminar el token de localStorage
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("wallet_balance");
+    localStorage.removeItem("user_id");
   };
 
   return (
