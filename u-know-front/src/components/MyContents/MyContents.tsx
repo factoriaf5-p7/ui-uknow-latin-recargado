@@ -69,7 +69,7 @@ const MyContents = () => {
 
             {contents.length === 2 && (
                 <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert"> 
-                    ¡Excelente! Ya tienes 2 contenidos creados. ¡Sigue creando y compartiendo más!
+                    ¡Estoy emocionado por ver lo que vendrá a continuación! 🚀🌟
                 </div>
             )}
         </div>
