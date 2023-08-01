@@ -26,10 +26,11 @@ export class AuthService {
       email: user.email,
       roles: user.roles,
       sub: user.id,
-     };
+    };
     return {
       access_token: this.jwtService.sign(payload),
-      name: user.name, 
+      user: user._id,
+      name: user.name,
       wallet_balance: user.wallet_balance
     };
   }

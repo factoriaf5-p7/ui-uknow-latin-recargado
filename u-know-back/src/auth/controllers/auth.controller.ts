@@ -24,11 +24,7 @@ export class AuthController {
     console.log(user);
     return this.userService.create(user);
   }
-  @Public()
-  @Get()
-    prueba(){
-    console.log('hola');
-  }
+
   @Public()
   @UseGuards(AuthGuard('local'))
   @ApiBody({ type: CreateUserDto })
