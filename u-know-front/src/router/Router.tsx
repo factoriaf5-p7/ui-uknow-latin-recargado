@@ -12,7 +12,8 @@ import EditContentPage from "../pages/EditContentPage";
 import ContentCartPage from "../pages/ContentCartPage";
 import ContentDetailPage from "../pages/ContentDetailPage";
 import RateContentPage from "../pages/RateContentPage";
-import React from "react";
+import { ModalPurchase } from "../components/Modales/ModalPurchase";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -37,39 +38,55 @@ export const router = createBrowserRouter([
       },
       {
         path: "/home-user",
-        element: <HomeUserPage />,
+        element: <ProtectedRoute children={<HomeUserPage />} />,
       },
       {
         path: "/profile",
-        element: <ProfilePage />,
+        element: <ProtectedRoute children={<ProfilePage />} />,
       },
       {
         path: "/content",
-        element: <ContentPage />,
+        element: <ProtectedRoute children={<ContentPage />} />,
       },
       {
         path: "/upload",
-        element: <UploadPage />,
+        element: <ProtectedRoute children={<UploadPage />} />,
       },
       {
         path: "/mycontent",
-        element: <MyContentPage />,
+        element: <ProtectedRoute children={<MyContentPage />} />,
       },
       {
         path: "/editcontent",
-        element: <EditContentPage />,
+        element: <ProtectedRoute children={<EditContentPage />} />,
       },
       {
         path: "/contentcart",
-        element: <ContentCartPage />,
+        element: <ProtectedRoute children={<ContentCartPage />} />,
       },
       {
         path: "/contentdetail",
-        element: <ContentDetailPage />,
+        element: <ProtectedRoute children={<ContentDetailPage />} />,
       },
       {
         path: "/ratecontent",
-        element: <RateContentPage />,
+        element: <ProtectedRoute children={<RateContentPage />} />,
+      },
+      {
+        path: "/modalpurchase",
+        element: (
+          <ModalPurchase
+            isOpen={false}
+            onRequestClose={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+            isLoggedIn={false}
+            hasEnoughBalance={false}
+            onLogin={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+        ),
       },
     ],
   },
