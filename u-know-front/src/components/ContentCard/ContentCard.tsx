@@ -1,1 +1,0 @@
-/* aquí cada tarjeta de contenido en la lista. */
