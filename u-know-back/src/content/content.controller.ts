@@ -38,6 +38,7 @@ export class ContentController {
   ) {}
 
   //ALLOW REGISTERED USERS TO CREATE CONTENT
+  @Roles(Role.User)
   @Post(':userId')
   createContent(
     @Param('userId') userId,
@@ -47,6 +48,7 @@ export class ContentController {
   }
 
   //ALLOW USERS TO SEE THE CONTENT THEY HAVE CREATED
+  @Roles(Role.User)
   @Get('user/:userId')
   findUserContent(@Param('userId') userId: string): Promise<Content[]> {
     return this.contentService.findUserContent(userId);
