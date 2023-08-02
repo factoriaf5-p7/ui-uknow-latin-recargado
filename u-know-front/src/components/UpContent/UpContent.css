@@ -1,3 +1,35 @@
 .container {
   padding-bottom: 60px;
 }
+ /* Agrega estilos al contenedor principal del formulario */
+.container {
+  position: relative;
+  /* Ajusta el tamaño y posición del fondo para que cubra todo el contenedor */
+  background-image: url("../assets/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+  /* O, si prefieres un efecto de desenfoque, puedes utilizar el siguiente estilo: */
+  /* backdrop-filter: blur(5px); */
+}
+/* Estilos para el logo de la marca */
+.globo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px; /* Ajusta el tamaño según lo necesites */
+  height: 150px;
+  z-index: 1; /* Asegura que esté por encima del contenido detrás */
+  animation: spin 2s infinite; /* Agrega la animación de giro */
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

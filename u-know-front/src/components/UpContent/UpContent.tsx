@@ -3,6 +3,9 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { CreateContent, ContentData } from "../../services/upload.service";
 import "./UpContent.css";
 import ContentEdit from "./ContentEdit";
+import { useNavigate } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
+import globo from "../../assets/globo.png"
 
 const ContentForm = () => {
   //obtiene el nombre del usuario
@@ -14,7 +17,8 @@ const ContentForm = () => {
   const [content, setContent] = useState("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false); //circulo de cargando
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,6 +32,7 @@ const ContentForm = () => {
     };
 
     const user: string | null = localStorage.getItem("user_id");
+    setIsLoading(true); // Activa el círculo de carga
     CreateContent(user, formData) //llama a la función de upload.service.ts
       .then((response) => {
         console.log("Solicitud exitosa:", response.data);
@@ -40,11 +45,16 @@ const ContentForm = () => {
         setCategory("");
         setDificulty(0);
         setContent("");
+        setTimeout(() => {
+        setIsLoading(false);
+        navigate("/mycontent");
+      }, 2000);
       })
-      .catch((error) => {
+        .catch((error) => {
         console.error("Error en la solicitud:", error);
         setShowSuccessAlert(false);
         setShowErrorAlert(true);
+        setIsLoading(false); // En caso de error, desactiva el círculo
       });
   };
 
@@ -61,6 +71,14 @@ const ContentForm = () => {
           ¡Error al cargar el contenido! Por favor, inténtalo nuevamente más tarde.
         </Alert>
       )}
+
+      {isLoading ? (
+        // Si isLoading es verdadero, muestra el logo de la marca
+        <img src={globo} alt="Logo de la marca" className="logo" />
+      ) : (
+        // Si isLoading es falso, muestra el formulario normal
+
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formTitle">
           <Form.Label>Título</Form.Label>
@@ -134,7 +152,8 @@ const ContentForm = () => {
         <Button variant="primary" type="submit">
           Enviar
         </Button>
-      </Form>
+        </Form>
+      )}
     </div>
   );
 };
