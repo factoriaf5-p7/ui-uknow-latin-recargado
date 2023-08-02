@@ -26,6 +26,12 @@ const Purchased = () => {
 
     return (
         <div>
+            {boughtContent.length === 0 && (
+                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert">
+                    ¡Bienvenido! 👋
+                    Parece que aún no has comprado ningún curso. ¡No te pierdas la oportunidad de aprender más! 🚀🌟
+                </div>
+            )}
             <div className="row">
                 {boughtContent.map((content) => (
                     <div key={content._id} className="col-md-4 mb-4">

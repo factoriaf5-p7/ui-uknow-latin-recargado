@@ -49,6 +49,12 @@ const MyContents = () => {
 
     return (
         <div>
+            {contents.length === 0 && (
+                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert">
+                    ¡Hola! 👋
+                    Parece que aún no has creado ningún contenido. ¿Por qué no empiezas a compartir tus conocimientos con el mundo? 🚀🌟
+                </div>
+            )}
             <div className="row">
                 {contents.map((content) => (
                     <div key={content._id} className="col-md-4 mb-4">
@@ -68,7 +74,7 @@ const MyContents = () => {
             </div>
 
             {contents.length === 2 && (
-                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert"> 
+                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert"> Sigue creando contenido increíble 🚀
                     ¡Estoy emocionado por ver lo que vendrá a continuación! 🚀🌟
                 </div>
             )}
