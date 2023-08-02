@@ -1,47 +1,47 @@
-import React, { FC, ReactNode, MouseEvent, useEffect, useState } from "react";
+import React, { FC, ReactNode, MouseEvent } from "react";
 import "./Modal.css";
-import { Course, contentIdService } from "../../services/content.service";
+import { Course } from "../../services/content.service";
 
 interface ModalProps {
   isOpen: boolean;
   closeModal: () => void;
   children: ReactNode;
-  courseId: string;
+  courseData: Course;
 }
 
-const Modal: FC<ModalProps> = ({ children, isOpen, closeModal, courseId }) => {
+const Modal: FC<ModalProps> = ({
+  children,
+  isOpen,
+  closeModal,
+  courseData,
+}) => {
   const handleModalContainerClick = (e: MouseEvent) => e.stopPropagation();
 
-  const [courseIdData, setCourseIdData] = useState<Course[]>([])
-
-  useEffect(() => {
-  const fetchCourseIdData = async (courseId: string) => {
-    try {
-      const courseData: Course[] = await contentIdService.getCourseById(courseId);
-      setCourseIdData(courseData)
-      console.log(courseData); // Aquí obtendrás los datos del curso específico
-
-      // Puedes hacer lo que necesites con los datos del curso, por ejemplo, mostrarlos en el modal.
-    } catch (error) {
-      console.error('Error fetching course by ID:', error);
-      // Maneja el error si es necesario
-    }
-  }
-  fetchCourseIdData(courseId) // Llama a la función para obtener los cursos cuando el componente se monte
-}, [courseId])
-          
-
-
   return (
-    <article className={`modal ${isOpen ? "is-open" : ""}`} onClick={closeModal}>
+    <article
+      className={`modal ${isOpen ? "is-open" : ""}`}
+      onClick={closeModal}
+    >
       <div className="modal-container" onClick={handleModalContainerClick}>
         <button className="modal-close" onClick={closeModal}>
           X
         </button>
-        <p>{courseId}</p>
-        {courseIdData.map((course) => (
-        <p> {course.price} </p>
-        ))};
+        <h1>{courseData.title}</h1>
+        <p>{courseData.ratings}</p>
+        <p>{courseData.description}</p>
+        <h2>{courseData.price}</h2>
+        {courseData.comments.length > 0 && (
+          <div>
+            <h3>Coments:</h3>
+            {courseData.comments.map((comment, index) => (
+              <div key={index}>
+                <p>Title: {comment.title}</p>
+                <p>{comment.comment}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        <p>boton</p>
         {children}
       </div>
     </article>
@@ -49,4 +49,3 @@ const Modal: FC<ModalProps> = ({ children, isOpen, closeModal, courseId }) => {
 };
 
 export default Modal;
-
