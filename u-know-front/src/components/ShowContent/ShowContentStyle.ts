@@ -14,5 +14,4 @@ export const linkStyle = {
   fontWeight: "bold",
   boxShadow: "0 5px 6px rgba(0, 0, 0, 0.3)",
   borderRadius: "3px",
-
 };

@@ -5,7 +5,6 @@ import {
   myCoursesStyle,
   purchasedCoursesStyle,
 } from "./HomeContenStyle";
-import "./HomeContent.css";
 
 export default function HomeContent() {
   return (
@@ -15,14 +14,14 @@ export default function HomeContent() {
           CREAR CURSO
         </Link>
         <Link to={"/mycontent"} className="courses" style={myCoursesStyle}>
-        MIS CURSOS 
+          MIS CURSOS
         </Link>
         <Link
           to={"/contentcart"}
           className="courses"
           style={purchasedCoursesStyle}
         >
-         CURSOS COMPRADOS
+          CURSOS COMPRADOS
         </Link>
       </div>
     </div>

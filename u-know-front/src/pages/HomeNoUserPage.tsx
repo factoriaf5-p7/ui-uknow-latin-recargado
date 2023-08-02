@@ -3,7 +3,7 @@ import SearchBox from "../components/SearchBox/SearchBox";
 import logoImage from "../assets/logo-uk.png";
 import "../pages/StylePages/HomeNoUserPage.css";
 import FooterLogin from "../components/FooterLogin/FooterLogin";
-import ShowContent from "../components/ShowContent/ShowContent";
+// import ShowContent from "../components/ShowContent/ShowContent";
 
 const Home: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
         <img src={logoImage} alt="Logo-UK" />
       </div>
       <SearchBox />
-      <ShowContent courses={undefined} />
+      {/* <ShowContent courses={undefined} /> */}
       <FooterLogin />
     </div>
   );

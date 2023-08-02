@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, useEffect } from "react";
 import "./SearchBox.css";
-import ShowContent, { Course } from "../ShowContent/ShowContent";
-import { contentService } from "../../services/content.service";
+import ShowContent from "../ShowContent/ShowContent";
+import { Course, contentService } from "../../services/content.service";
 
 const SearchBox = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");

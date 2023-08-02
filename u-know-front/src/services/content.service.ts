@@ -1,10 +1,29 @@
 import axios from "axios";
-import { Course } from "../components/ShowContent/ShowContent";
 
 export interface Content {
   _id: string;
   title: string;
 }
+
+export interface Course {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  dificulty: number;
+  ratings: Array<number>;
+  comments: Array<Comment>;
+  content: string;
+}
+
+export interface Comment {
+  title: string;
+  comment: string;
+  username: string;
+  _id: string;
+}
+
 //connection for all content
 
 export const contentService = {
@@ -28,7 +47,6 @@ export const contentService = {
   },
 };
 
-
 //connection for search content
 
 export const searchContent = (query: string): Promise<Content[]> => {
@@ -44,13 +62,14 @@ export const searchContent = (query: string): Promise<Content[]> => {
       return [];
     });
 };
- 
-export const buyContentUser = { buyContent(id: string, contentId: string) {
-  return axios.post(
-    `http://localhost:3000/api/v1/auth/buyContent/${id}/${contentId}`,
-    { headers: { 'Content-Type': 'application/JSON' } }
-  );
-},
+
+export const buyContentUser = {
+  buyContent(id: string, contentId: string) {
+    return axios.post(
+      `http://localhost:3000/api/v1/auth/buyContent/${id}/${contentId}`,
+      { headers: { "Content-Type": "application/JSON" } }
+    );
+  },
 };
 
 //connection for get all create content
@@ -75,14 +94,15 @@ export const getUserContents = async (user: string): Promise<Content[]> => {
 //connection for get all purchased content
 export async function getBoughtContent(user: string) {
   try {
-    const response = await axios.get(`http://localhost:3000/api/v1/content/${user}/boughtContent`,
+    const response = await axios.get(
+      `http://localhost:3000/api/v1/content/${user}/boughtContent`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
       }
-    );  
+    );
     return response.data;
   } catch (error) {
     throw new Error("Error fetching bought content.");
