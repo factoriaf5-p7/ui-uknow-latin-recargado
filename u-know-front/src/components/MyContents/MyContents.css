@@ -20,17 +20,18 @@
 
 .edit-icon {
     color: #000000;
+    transition: transform 0.2s;
 }
 
 .edit-icon:hover {
-    color: #7e7c7c;
+    transform: scale(1.5);
 }
 
 .edit-delete-icons {
     display: flex;
     gap: 20px;
 }
-.edit-delete-icons:hover{
+.edit-delete-icons .color:hover{
     color: red;
 }
 
