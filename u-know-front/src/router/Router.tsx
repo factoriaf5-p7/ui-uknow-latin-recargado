@@ -12,6 +12,7 @@ import EditContentPage from "../pages/EditContentPage";
 import ContentCartPage from "../pages/ContentCartPage";
 import ContentDetailPage from "../pages/ContentDetailPage";
 import RateContentPage from "../pages/RateContentPage";
+import StudyContentPage from "../pages/StudyContentPage";
 import { ModalPurchase } from "../components/Modales/ModalPurchase";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
       {
         path: "/contentcart",
         element: <ProtectedRoute children={<ContentCartPage />} />,
+      },
+      {
+        path: "/studycontent",
+        element: <ProtectedRoute children={<StudyContentPage />} />,
       },
       {
         path: "/contentdetail",

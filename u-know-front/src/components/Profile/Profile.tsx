@@ -16,7 +16,6 @@ const Profile = () => {
 
     return (
         <div className="container mt-5">
-            <h2>Perfil de Usuario</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formFirstName">
                     <Form.Label>Nombre</Form.Label>

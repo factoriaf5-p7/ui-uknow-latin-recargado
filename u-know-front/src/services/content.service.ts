@@ -71,3 +71,20 @@ export const getUserContents = async (user: string): Promise<Content[]> => {
     throw error;
   }
 };
+
+//connection for get all purchased content
+export async function getBoughtContent(user: string) {
+  try {
+    const response = await axios.get(`http://localhost:3000/api/v1/content/${user}/boughtContent`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );  
+    return response.data;
+  } catch (error) {
+    throw new Error("Error fetching bought content.");
+  }
+}

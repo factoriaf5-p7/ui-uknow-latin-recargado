@@ -13,7 +13,7 @@ const MyContents = () => {
         if (user) {
             fetchContents(user);
         } else {
-            console.log('Usuario no ha iniciado sesión o ID no encontrado en LocalStorage.');
+            console.log('Usuario no ha iniciado sesión');
         }
     }, []);
 
@@ -58,7 +58,7 @@ const MyContents = () => {
                                     <h5 className="card-title">{content.title}</h5>
                                     <div className="edit-delete-icons">
                                         <a href={`/editcontent`}><FaPencilAlt className="edit-icon" /></a>
-                                        <span onClick={() => handleDelete(content._id)}><FaTrashAlt /></span>
+                                        <span onClick={() => handleDelete(content._id)}><FaTrashAlt className="edit-icon color" /></span>
                                     </div>
                                 </div>
                             </div>
