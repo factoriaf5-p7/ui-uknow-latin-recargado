@@ -6,9 +6,10 @@ export interface BotonProps {
 }
 
 const BotonCompra: React.FC<BotonProps> = ({ courseData }) => {
+  const walletBalance = localStorage.getItem("wallet_balance");
+
   const handleBuyCourse = () => {
     // Verificar si el usuario está logged in
-    const walletBalance = localStorage.getItem("wallet_balance");
 
     if (!localStorage.getItem("token")) {
       return <Navigate to="/login" replace />;
