@@ -1,0 +1,14 @@
+.my-content-color-card {
+    background-color: #FF7082 !important;
+    border: none !important;
+    width: 80%;
+    margin-left: 10%; 
+    margin-right: 10%;
+    align-items: center;
+}
+.custom-link {
+    transition: transform 0.2s; 
+}
+.custom-link:hover {
+    transform: scale(1.2); 
+}
