@@ -52,7 +52,8 @@ const MyContents = () => {
             {contents.length === 0 && (
                 <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert">
                     ¡Hola! 👋
-                    Parece que aún no has creado ningún contenido. ¿Por qué no empiezas a compartir tus conocimientos con el mundo? 🚀🌟
+                    Parece que aún no has creado ningún contenido. 
+                    ¿Por qué no empiezas a compartir tus conocimientos con el mundo? 🚀🌟
                 </div>
             )}
             <div className="row">

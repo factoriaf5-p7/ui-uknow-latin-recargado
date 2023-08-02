@@ -4,7 +4,6 @@ import { CreateContent, ContentData } from "../../services/upload.service";
 import "./UpContent.css";
 import ContentEdit from "./ContentEdit";
 import { useNavigate } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
 import globo from "../../assets/globo.png"
 
 const ContentForm = () => {
@@ -17,7 +16,7 @@ const ContentForm = () => {
   const [content, setContent] = useState("");
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); //circulo de cargando
+  const [isLoading, setIsLoading] = useState(false);  
   const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -48,7 +47,7 @@ const ContentForm = () => {
         setTimeout(() => {
         setIsLoading(false);
         navigate("/mycontent");
-      }, 2000);
+      }, 1000);
       })
         .catch((error) => {
         console.error("Error en la solicitud:", error);
@@ -74,8 +73,8 @@ const ContentForm = () => {
 
       {isLoading ? (
         // Si isLoading es verdadero, muestra el logo de la marca
-        <img src={globo} alt="Logo de la marca" className="logo" />
-      ) : (
+        <img src={globo} alt="Logo de la marca" className="globo" />
+        )  : (
         // Si isLoading es falso, muestra el formulario normal
 
 
