@@ -15,7 +15,7 @@ export default function ShowContent() {
     // Función asincrónica para obtener los cursos desde la API
     const fetchCourses = async () => {
       try {
-        const coursesData:Course[] = await contentService.getCourses()
+        const coursesData: Course[] = await contentService.getCourses()
         setCourses(coursesData)
         console.log(coursesData)
       } catch (error) {
@@ -38,18 +38,26 @@ export default function ShowContent() {
               ...linkStyle,
               background: `var(--card${(index % 4) + 1}-gradient)`,
             }}
+            key={course._id} 
           >
-            <Modals />
+            <Modals courseId = {course._id}/>
             <h2>{course.title}</h2>
             <p>€{course.price}</p>
-            <p>{course.description}</p>
-            {course.comments.length > 0 && (
+           {/*  <p>{course.description}</p> */}
+       {/*      {course.comments.length > 0 && (
               <div>
-                 <p>title {course.comments[0].title}</p>
+                <p>title {course.comments[0].title}</p>
                 <p>Por: {course.comments[0].username}</p>
                 <p>{course.comments[0].comment}</p>
               </div>
             )}
+              {course.comments.length > 1 && (
+              <div>
+                <p>title {course.comments[1].title}</p>
+                <p>Por: {course.comments[1].username}</p>
+                <p>{course.comments[1].comment}</p>
+              </div>
+            )} */}
           </div>
         ))}
       </div>

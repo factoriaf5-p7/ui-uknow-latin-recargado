@@ -3,6 +3,7 @@ import axios from "axios";
 //connection for all content
 
 export interface Course {
+  _id:string
   title: string
   description: string
   price: number
@@ -39,6 +40,29 @@ export const contentService = {
     }
   },
 };
+
+
+export const contentIdService = {
+  getCourseById: async (courseId: string): Promise<Course[]> => {
+    try {
+      const response = await axios.get<Course[]>(
+        `http://localhost:3000/api/v1/content/${courseId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      return response.data;
+    } catch (error) {
+      // Aquí puedes manejar los errores de la petición si es necesario
+      console.error("Error fetching courses:", error);
+      throw error;
+    }
+  },
+};
+
 
 //connection for search content
 

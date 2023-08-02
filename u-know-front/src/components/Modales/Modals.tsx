@@ -1,20 +1,20 @@
-import React from "react";
-import { useModal } from "./useModal";
-import Modal from "./Modal";
+import React from 'react'
+import { useModal } from './useModal'
+import Modal from './Modal'
 
-const Modals: React.FC = () => {
-  const [isOpenModal1, openModal1, closeModal1] = useModal(false);
-  
+export interface ModalsProps {
+  courseId: string // Cambiar el tipo de dato según el ID de curso sea (string, number, o cualquier otro tipo)
+}
+
+const Modals: React.FC<ModalsProps> = ({ courseId }) => {
+  const [isOpenModal1, openModal1, closeModal1] = useModal(false)
+
   return (
     <div>
       <button onClick={openModal1}>Buy</button>
-      <Modal isOpen={isOpenModal1} closeModal={closeModal1}>
-        <h3>Modal 1</h3>
-        <p>Hola ese es el contenido de mi modal 1</p>
-        <img src="https://placeimg.com/400/400/animals" alt="Animals" />
-      </Modal>
+      <Modal courseId={courseId} isOpen={isOpenModal1} closeModal={closeModal1}></Modal>
     </div>
-  );
-};
+  )
+}
 
-export default Modals;
+export default Modals
