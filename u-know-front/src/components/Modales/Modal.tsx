@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, MouseEvent } from "react";
 import "./Modal.css";
 import { Course } from "../../services/content.service";
+import BotonCompra from "../BotonCompra/BotonCompra";
 
 interface ModalProps {
   isOpen: boolean;
@@ -41,7 +42,7 @@ const Modal: FC<ModalProps> = ({
             ))}
           </div>
         )}
-        <p>boton</p>
+        <BotonCompra courseData={courseData} />
         {children}
       </div>
     </article>
