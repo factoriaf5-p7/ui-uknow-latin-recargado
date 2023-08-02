@@ -1,0 +1,48 @@
+.my-content-card {
+    background-color: #FEC747 !important;
+    border: none !important;
+    width: 80%;
+    margin-left: 10%; 
+    margin-right: 10%;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-icon {
+    color: #000000;
+}
+
+.edit-icon:hover {
+    color: #7e7c7c;
+}
+
+.edit-delete-icons {
+    display: flex;
+    gap: 20px;
+}
+.edit-delete-icons:hover{
+    color: red;
+}
+
+.card-title {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .my-content-card {
+    width: 60%; 
+    margin: 0; 
+  }
+}

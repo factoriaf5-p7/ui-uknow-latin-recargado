@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { CreateContent, ContentData } from "../../services/upload.service";
 import "./UpContent.css";
 import ContentEdit from "./ContentEdit";
@@ -12,6 +12,9 @@ const ContentForm = () => {
   const [category, setCategory] = useState("");
   const [dificulty, setDificulty] = useState(0);
   const [content, setContent] = useState("");
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,14 +31,36 @@ const ContentForm = () => {
     CreateContent(user, formData) //llama a la función de upload.service.ts
       .then((response) => {
         console.log("Solicitud exitosa:", response.data);
+        setShowSuccessAlert(true);
+        setShowErrorAlert(false);
+        //limpia los campos
+        setTitle("");
+        setDescription("");
+        setPrice(0);
+        setCategory("");
+        setDificulty(0);
+        setContent("");
       })
       .catch((error) => {
         console.error("Error en la solicitud:", error);
+        setShowSuccessAlert(false);
+        setShowErrorAlert(true);
       });
   };
 
   return (
     <div className="container mt-5">
+      {showSuccessAlert && (
+        <Alert variant="success" onClose={() => setShowSuccessAlert(false)} dismissible>
+          ¡El contenido se cargó correctamente!
+        </Alert>
+      )}
+
+      {showErrorAlert && (
+        <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+          ¡Error al cargar el contenido! Por favor, inténtalo nuevamente más tarde.
+        </Alert>
+      )}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formTitle">
           <Form.Label>Título</Form.Label>
@@ -100,7 +125,7 @@ const ContentForm = () => {
   <Form.Label>Contenido Completo</Form.Label>
   <ContentEdit
     value={content}
-    onChange={(val) => setContent(val)} // Cambiar a esta función para guardar el valor en el estado del componente ContentForm
+    onChange={(val) => setContent(val)}
     required
   />
 </Form.Group>
