@@ -34,6 +34,9 @@ export function useWalletContext() {
     return useContext(WalletContext );
 }
 
+// Hasta acá el código que usamos es para actualizar la wallet y el nombre en la home apenas 
+//iniciamos sesión. 
+///////////////////////////////////////
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
     const [name, setUsername] = useState(() => {

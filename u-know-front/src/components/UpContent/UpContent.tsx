@@ -125,7 +125,7 @@ const ContentForm = () => {
   <Form.Label>Contenido Completo</Form.Label>
   <ContentEdit
     value={content}
-    onChange={(val) => setContent(val)} // Cambiar a esta función para guardar el valor en el estado del componente ContentForm
+    onChange={(val) => setContent(val)}
     required
   />
 </Form.Group>

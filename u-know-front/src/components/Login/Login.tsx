@@ -3,7 +3,7 @@ import { Button, Form, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/user.service";
 import "./Login.css";
-import { useUserContext } from "../UserContext";
+import { useUserContext, useWalletContext } from "../UserContext";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,6 +11,7 @@ export default function Login() {
   const [formData, setFromData] = useState({ email: "", password: "" });
   const [error, setError] = useState<string | null>(null); // Para almacenar el error
   const { setUserNameAfterLogin } = useUserContext();
+  const { setUserWalletAfterLogin } = useWalletContext()
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFromData({
@@ -30,6 +31,7 @@ export default function Login() {
       localStorage.setItem("user_id", response.data.user);
 
       setUserNameAfterLogin(response.data.name);
+      setUserWalletAfterLogin(response.data.wallet_balance)
       navigate("/home-user");
       setFromData(initialState);
     } catch (error) {
