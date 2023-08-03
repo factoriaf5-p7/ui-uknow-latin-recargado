@@ -7,19 +7,25 @@
     flex: 1 0 30%; 
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center;    
 }
 
 .modal-button {
+
     margin-left: 80px;
     margin-top: -20px;
 }
 p{
     font-size: 15px;
 }
-
+h2{
+    text-align: left;
+    font-size: 19px !important;
+}
 @media (min-width: 768px) {
     .container.colors {
         width: 85%;
     }
 }
+
+    
