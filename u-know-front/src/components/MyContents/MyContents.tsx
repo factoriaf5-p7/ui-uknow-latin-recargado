@@ -38,7 +38,7 @@ const MyContents = () => {
         }
     };
 
-    const handleDelete = async (contentId: string) => {
+/*     const handleDelete = async (contentId: string) => {
         try {
             const purchases = await getPurchasesByContentId(contentId); //primero traer las compras de los usuarios
             const canDelete = true; //el usuario esta autorizado a borrar puede borrar
@@ -56,7 +56,7 @@ const MyContents = () => {
         } catch (error) {
             console.log('Error al borrar el contenido');
         }
-    };
+    }; */
 
     return (
         <div>
@@ -74,7 +74,7 @@ const MyContents = () => {
                                     <h5 className="card-title">{content.title}</h5>
                                     <div className="edit-delete-icons">
                                         <a href={`/editcontent`}><FaPencilAlt className="edit-icon" /></a>
-                                        <span onClick={() => handleDelete(content._id)}><FaTrashAlt className="edit-icon color" /></span>
+                                        {/* <span onClick={() => handleDelete(content._id)}> */}<FaTrashAlt className="edit-icon color" />{/* </span> */}
                                     </div>
                                 </div>
                             </div>
