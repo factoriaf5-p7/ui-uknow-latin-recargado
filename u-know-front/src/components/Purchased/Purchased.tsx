@@ -33,9 +33,9 @@ const Purchased = () => {
           ¡No te pierdas la oportunidad! 🚀🌟
         </div>
       )}
-      <div className="row">
+      <div className="row mt-5">
         {boughtContent.map((content) => (
-          <div key={content._id} className="col-md-4 mb-4">
+          <div key={content._id} className=" mb-4">
             <div style={{ cursor: "pointer" }}>
               <div className="card my-content-color-card my-content-card-50">
                 <div className="card-body">

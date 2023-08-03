@@ -13,11 +13,11 @@
 .custom-link:hover {
     transform: scale(1.2); 
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .my-content-color-card {
-    width: 50%;
+    max-width: 50%;
     margin-left: 25%;
     margin-right: 25%;
     margin-bottom: 1% !important;
   }
-}
+} */

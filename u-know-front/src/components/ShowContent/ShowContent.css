@@ -12,7 +12,7 @@
 
 .modal-button {
 
-    margin-left: 80px;
+    margin-left: 20px;
     margin-top: -20px;
 }
 p{
@@ -22,10 +22,10 @@ h2{
     text-align: left;
     font-size: 19px !important;
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container.colors {
         width: 85%;
     }
 }
-
+ */
     
