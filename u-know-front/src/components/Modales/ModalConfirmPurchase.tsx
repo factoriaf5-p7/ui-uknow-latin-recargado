@@ -1,11 +1,12 @@
 import React from 'react'
 import Modal from 'react-modal'
 import axios from 'axios'
+import { Course } from '../../services/content.service'
 
 interface ModalConfirmPurchaseProps {
   isOpen: boolean
   onRequestClose: () => void
-  courseId: string 
+  courseId: Course
 }
 
 const ModalConfirmPurchase: React.FC<ModalConfirmPurchaseProps> = ({
