@@ -15,8 +15,7 @@ import RateContentPage from "../pages/RateContentPage";
 import StudyContentPage from "../pages/StudyContentPage";
 import { ModalPurchase } from "../components/Modales/ModalPurchase";
 import ProtectedRoute from "./ProtectedRoute";
-import ModalNoBalance from "../components/Modales/ModalNoBalance";
-
+import UnProtectedRoute from "./UnProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -32,16 +31,12 @@ export const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/login",
-        element: <ModalNoBalance isOpen={true} onRequestClose={() => {}} />,
-      },
-      {
         path: "/register",
         element: <RegisterPage />,
       },
       {
         path: "/home",
-        element: <HomeNoUserPage />,
+        element: <UnProtectedRoute children={<HomeNoUserPage />} />,
       },
       {
         path: "/home-user",
