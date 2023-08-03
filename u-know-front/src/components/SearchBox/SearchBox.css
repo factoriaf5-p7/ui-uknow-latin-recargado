@@ -6,6 +6,10 @@
 .search-input {
   display: flex;
   align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+
 }
 
 @media (min-width: 768px) {
