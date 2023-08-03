@@ -17,3 +17,9 @@
 p{
     font-size: 15px;
 }
+
+@media (min-width: 768px) {
+    .container.colors {
+        width: 85%;
+    }
+}

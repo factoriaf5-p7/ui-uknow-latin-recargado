@@ -13,7 +13,7 @@ header {
 }
 
 .logo img {
-  width: 70px;
+  width: 75px;
 }
 
 nav {
@@ -51,7 +51,11 @@ nav a img {
 
 @media (min-width: 768px) {
   header {
-    margin-left: 125px;
-    margin-right: 125px;
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-bottom: 2%;
   }
+  .logo img {
+  width: 95px;
+}
 }

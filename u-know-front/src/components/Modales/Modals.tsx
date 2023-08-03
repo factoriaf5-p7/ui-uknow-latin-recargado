@@ -14,7 +14,7 @@ const Modals: React.FC<ModalsProps> = ({ courseData }) => {
   return (
     <div>
       <button className="style-btn" onClick={openModal1}>
-        <FaShoppingCart size={25} />
+        <FaShoppingCart size={35} />
       </button>
       <Modal
         courseData={courseData}
