@@ -110,6 +110,7 @@ export class ContentController {
 
     // Guardar los cambios en el usuario
     await user.save();
+    this.contentService.buyContent(user._id, content._id);
     return 'Content purchased successfully';
   }
   //permitir que los usuarios registrados vean el contenido que han comprado
@@ -117,7 +118,7 @@ export class ContentController {
   getBoughtContent(@Param('id') id: string) {
     return this.contentService.getBoughtContent(id);
   }
-  //permitir que los usuarios comenten 
+  //permitir que los usuarios comenten
   @Post(':id/comment')
   async addComment(@Param('id') id: string, @Body() comment: CreateCommentDto) {
     return await this.contentService.addComment(id, comment);

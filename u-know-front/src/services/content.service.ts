@@ -63,13 +63,23 @@ export const searchContent = (query: string): Promise<Content[]> => {
     });
 };
 
-export const buyContentUser = {
-  buyContent(id: string, contentId: string) {
-    return axios.post(
-      `http://localhost:3000/api/v1/auth/buyContent/${id}/${contentId}`,
-      { headers: { "Content-Type": "application/JSON" } }
+export const buyContentUser = async (id: string, contentId: string) => {
+  try {
+    const response = await axios.post(
+      `http://localhost:3000/api/v1/content/${id}/buy/${contentId}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+      }
     );
-  },
+    return response.data;
+  } catch (error) {
+    console.error(`error en la peticion ${error}`);
+    throw error;
+  }
 };
 
 //connection for get all create content
