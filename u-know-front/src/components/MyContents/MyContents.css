@@ -1,15 +1,15 @@
 .my-content-card {
     background-color: #FEC747 !important;
     border: none !important;
-    width: 80%;
-    margin-left: 10%; 
-    margin-right: 10%;
+    width: 100%;
+    margin-bottom: 3% !important;
 }
-
 .row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center   !important;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .content-header {
@@ -17,16 +17,13 @@
     justify-content: space-between;
     align-items: center;
 }
-
 .edit-icon {
     color: #000000;
     transition: transform 0.2s;
 }
-
 .edit-icon:hover {
     transform: scale(1.5);
 }
-
 .edit-delete-icons {
     display: flex;
     gap: 20px;
@@ -34,7 +31,6 @@
 .edit-delete-icons .color:hover{
     color: red;
 }
-
 .card-title {
     margin: 0;
     margin-top: 5px;
@@ -43,7 +39,9 @@
 
 @media (min-width: 768px) {
   .my-content-card {
-    width: 60%; 
-    margin: 0; 
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 1% !important;
   }
 }

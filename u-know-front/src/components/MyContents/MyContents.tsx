@@ -67,7 +67,7 @@ const MyContents = () => {
             )}
             <div className="row">
                 {contents.map((content) => (
-                    <div key={content._id} className="col-md-4 mb-4">
+                    <div key={content._id}>
                         <div className="card my-content-card my-content-card-50">
                             <div className="card-body">
                                 <div className="content-header">
