@@ -3,6 +3,7 @@ import { Content, getUserContents } from "../../services/content.service";
 import "./MyContents.css";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
+
 const MyContents = () => {
     const [contents, setContents] = useState<Content[]>([]);
 
