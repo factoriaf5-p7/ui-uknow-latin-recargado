@@ -1,0 +1,23 @@
+.my-content-color-card {
+    background-color: #FF7082 !important;
+    border: none !important;
+    width: 80%;
+    margin-left: 10%; 
+    margin-right: 10%;
+    align-items: center;
+    margin-bottom: 3%;
+}
+.custom-link {
+    transition: transform 0.2s; 
+}
+.custom-link:hover {
+    transform: scale(1.2); 
+}
+/* @media (min-width: 768px) {
+  .my-content-color-card {
+    max-width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 1% !important;
+  }
+} */

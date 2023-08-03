@@ -1,0 +1,1 @@
+/* aquí el modal para confirmar la compra. */

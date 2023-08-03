@@ -1,0 +1,13 @@
+.contentpurchase h1 {
+    width: 100%;
+    background-color: #FF7082;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.contentpurchase p{
+   padding: 30px;
+}

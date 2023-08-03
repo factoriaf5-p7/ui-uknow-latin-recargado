@@ -1,0 +1,36 @@
+.container {
+  padding-bottom: 60px;
+}
+ 
+.container {
+  position: relative;
+  background-image: url("../assets/globo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(255, 255, 255, 0.8);
+   backdrop-filter: blur(5px);
+}
+.rocket-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.rocket-emoji {
+ 
+  animation: spin 2s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+}
+}
