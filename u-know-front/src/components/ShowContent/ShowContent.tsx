@@ -22,8 +22,8 @@ export default function ShowContent({ courses }: ShowContentProps) {
             key={course._id}
           >
             <h2>{course.title}</h2>
-            <p>uK{course.price}</p>
             <div className="modal-button">
+              <p>uK{course.price}</p>
               <Modals courseData={course} />
             </div>
           </div>

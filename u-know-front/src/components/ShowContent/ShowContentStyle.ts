@@ -10,7 +10,7 @@ export const linkStyle = {
   paddingBottom: "25px",
   textDecoration: "none",
   color: "black",
-  fontSize: "27px",
+  fontSize: "22px",
   fontWeight: "bold",
   boxShadow: "0 5px 6px rgba(0, 0, 0, 0.3)",
   borderRadius: "3px",
