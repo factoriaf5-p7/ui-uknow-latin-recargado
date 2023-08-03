@@ -1,19 +1,33 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { updateUserProfile, UserData } from "../../services/user.service"; 
 
 const Profile = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [nickname, setNickname] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [userData, setUserData] = useState<UserData>({
+        Name: "",
+        user_name: "",
+        email: "",
+        password: "",
+    });
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-/////////// falta service
-        alert("Tus datos se han actualizado correctamente.");
-    };
 
+        const userId = localStorage.getItem("user_id");
+        if (!userId) {
+            console.error("Error: No se encontró el user_id en localStorage.");
+            return;
+        }
+
+        try {
+            await updateUserProfile(userId, userData);
+            alert("Tus datos se han actualizado correctamente.");
+        } catch (error) {
+            const errorMessage = (error as Error).message;
+            console.error("Error al actualizar el perfil:", errorMessage);
+            alert("Hubo un error al actualizar tus datos. Por favor, intenta de nuevo.");
+        }
+    };
     return (
         <div className="container mt-5">
             <Form onSubmit={handleSubmit}>
@@ -21,28 +35,18 @@ const Profile = () => {
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control
                         type="text"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        value={userData.Name}
+                        onChange={(e) => setUserData({ ...userData, Name: e.target.value })}
                         required
                     />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formLastName">
-                    <Form.Label>Apellido</Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        required
-                    />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formNickname">
                     <Form.Label>Apodo</Form.Label>
                     <Form.Control
                         type="text"
-                        value={nickname}
-                        onChange={(e) => setNickname(e.target.value)}
+                        value={userData.user_name}
+                        onChange={(e) => setUserData({ ...userData, user_name: e.target.value })}
                         required
                     />
                 </Form.Group>
@@ -51,8 +55,8 @@ const Profile = () => {
                     <Form.Label>Correo Electrónico</Form.Label>
                     <Form.Control
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={userData.email}
+                        onChange={(e) => setUserData({ ...userData, email: e.target.value })}
                         required
                     />
                 </Form.Group>
@@ -61,8 +65,8 @@ const Profile = () => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control
                         type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={userData.password}
+                        onChange={(e) => setUserData({ ...userData, password: e.target.value })}
                         required
                     />
                 </Form.Group>
