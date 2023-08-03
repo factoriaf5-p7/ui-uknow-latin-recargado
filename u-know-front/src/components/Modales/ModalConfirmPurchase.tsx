@@ -17,7 +17,7 @@ const ModalConfirmPurchase: React.FC<ModalConfirmPurchaseProps> = ({
   const handleConfirmPurchase = async () => {
     try {
       // Realizar una solicitud a la API para guardar la compra en la base de datos
-      await axios.post('http://localhost:3000/api/v1/', {
+      await axios.post('http://localhost:3000/api/v1/:id/buy/:contentId', {
         courseId: courseId,
       })
 
