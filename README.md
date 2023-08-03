@@ -124,8 +124,11 @@ este tenga las funcionalidades esperables. Para el desarrollo de esta etapa util
  
 ## Equipo de trabajo: 
  👨‍💻Scrum Master: Sebastián Riggio 
+ 
  👩‍💻 Product Owner: Evangelina Rodriguez 
+ 
  👩‍💻 Development: Huilen Peña 
+ 
  👨‍💻 Development: Jesús Fajardo
 
 
