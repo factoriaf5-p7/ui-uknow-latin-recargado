@@ -3,19 +3,30 @@ import { Content, getUserContents } from "../../services/content.service";
 import "./MyContents.css";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
+
 const MyContents = () => {
     const [contents, setContents] = useState<Content[]>([]);
+    const [showNoContentAlert, setShowNoContentAlert] = useState(false);
 
     useEffect(() => {
         // Obtén el ID del usuario logueado desde el LocalStorage
         const user = localStorage.getItem("user_id");
-
+    
         if (user) {
-            fetchContents(user);
+          fetchContents(user);
         } else {
-            console.log('Usuario no ha iniciado sesión');
+          console.log('Usuario no ha iniciado sesión');
         }
-    }, []);
+    
+        // Temporizador para mostrar la alerta después de 5 segundos
+        const timer = setTimeout(() => {
+          if (contents.length === 0) {
+            setShowNoContentAlert(true);
+          }
+        }, 5000); // 5000 ms = 5 segundos
+    
+        return () => clearTimeout(timer); // Limpiar el temporizador al desmontar el componente
+      }, [contents]);
 
     const fetchContents = async (user: string) => {
         try {
@@ -49,12 +60,10 @@ const MyContents = () => {
 
     return (
         <div>
-            {contents.length === 0 && (
-                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert">
-                    ¡Hola! 👋
-                    Parece que aún no has creado ningún contenido. 
-                    ¿Por qué no empiezas a compartir tus conocimientos con el mundo? 🚀🌟
-                </div>
+      {showNoContentAlert && contents.length === 0 && (
+        <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert">
+          ¡Hola! 👋 Parece que aún no has creado ningún contenido. ¿Por qué no empiezas a compartir tus conocimientos con el mundo? 🚀🌟
+        </div>
             )}
             <div className="row">
                 {contents.map((content) => (

@@ -4,7 +4,7 @@ import { CreateContent, ContentData } from "../../services/upload.service";
 import "./UpContent.css";
 import ContentEdit from "./ContentEdit";
 import { useNavigate } from "react-router-dom";
-import globo from "../../assets/globo.png"
+import rocketEmoji from "../../assets/rocketEmoji.png"; 
 
 const ContentForm = () => {
   //obtiene el nombre del usuario
@@ -71,10 +71,10 @@ const ContentForm = () => {
         </Alert>
       )}
 
-      {isLoading ? (
-        // Si isLoading es verdadero, muestra el logo de la marca
-        <img src={globo} alt="Logo de la marca" className="globo" />
-        )  : (
+{isLoading ? (
+        // Si isLoading es verdadero, muestra el emoticon 🚀 centrado
+        <img src={rocketEmoji} alt="Emoticon Rocket" className="rocket-emoji" />
+      ) : (
         // Si isLoading es falso, muestra el formulario normal
 
 
