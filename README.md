@@ -112,16 +112,23 @@ este tenga las funcionalidades esperables. Para el desarrollo de esta etapa util
  </details>
 
 ## 📦Recursos entregables📦: 
- ** 📌[Repositorio de Github] (https://github.com/factoriaf5-p7/ui-uknow-latin-recargado)
- ** 📌[Tablero de trabajo - Trello] (https://trello.com/b/g9HzrXcI/latinfront)
- ** 📌 [Diseño de frontend - Figma] (https://www.figma.com/file/RsR4rcsrYd7RP4oBMicwMR/Untitled?type=design&node-id=0%3A1&mode=design&t=tsrbCK6Soo5ldoyI-1) 
+ 📌**[Repositorio de Github] (https://github.com/factoriaf5-p7/ui-uknow-latin-recargado)
+ 
+ **[Tablero de trabajo - Trello] (https://trello.com/b/g9HzrXcI/latinfront)
+ 
+ **📌 [Diseño de frontend - Figma] (https://www.figma.com/file/RsR4rcsrYd7RP4oBMicwMR/Untitled?type=design&node-id=0%3A1&mode=design&t=tsrbCK6Soo5ldoyI-1) 
+ 
  ** 📌[Presentación del proyecto] (https://www.canva.com/design/DAFqd1clRmM/Zz8vk2pS1bMRdFADWAmyJA/edit)
+ 
  ** 📌[Aplicación en despliegue]()
-
+ 
 ## Equipo de trabajo: 
  ** 👨‍💻Scrum Master: Sebastián Riggio 
+ 
  ** 👩‍💻 Product Owner: Evangelina Rodriguez 
+ 
  ** 👩‍💻 Development: Huilen Peña 
+ 
  ** 👨‍💻 Development: Jesús Fajardo
 
 
