@@ -5,7 +5,7 @@ const AvatarWithArrow = () => {
         <div>
             <FaUserCircle size={35} />
             <div style={{ marginLeft: '10px', display: 'inline-block'}}>
-                <span style={{ marginLeft: '5px'}}>Iniciar Sesión</span>
+                <span style={{ marginLeft: '5px', fontSize: '12px'}}>Iniciar Sesión</span>
             </div>
         </div>
     );

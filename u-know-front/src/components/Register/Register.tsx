@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 import { Alert, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { registerService } from "../../services/user.service";
+import { registerService } from "../../services/user.service"; 
 
 export default function Register() {
   const initialState = { name: "", email: "", password: "" };
@@ -79,9 +79,7 @@ export default function Register() {
         <Button
           type="submit"
           variant="primary"
-          className="w-100"
-          style={{ fontSize: "1.2rem" }}
-        >
+         >
         Enviar
         </Button>
       </Form>

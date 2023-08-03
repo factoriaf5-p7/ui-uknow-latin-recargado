@@ -7,6 +7,7 @@ footer {
     height: 60px;
 }
 footer ul {
+    margin-top: 0px !important;
     list-style: none;
     display: flex;
     justify-content: space-around;
