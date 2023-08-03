@@ -72,6 +72,6 @@ export default function Login() {
       <Button variant="primary" type="submit">
         Iniciar sesión
       </Button>
-    </Form>
+      </Form>
   );
 }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import './StylePages/LoginPage.css'
 
 export default function LoginPage() {
-  return <div>
+  return <div className= "login-container">
       <div className="logo-login">
         <img src="./src/assets/logo-uk.png" style={{ width: '200px'}} />
       </div>

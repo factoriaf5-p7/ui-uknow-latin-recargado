@@ -1,29 +1,29 @@
-/* Centrar el formulario */
 form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilo para el botón de inicio de sesión */
-  button[type="submit"] {
-    width: 100%;
-  }
-  
-  /* Estilo para los campos de entrada */
-  .form-control {
-    margin-bottom: 10px;
-  }
-  
-  /* Estilo para el contenedor del mensaje de texto (opcional) */
-  .text-muted {
-    font-size: 14px;
-  }
-  button.btn.btn-link{
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-  }
-    button.btn.btn-link:hover{
-   color: var(--uploadcontent);
-  }
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+button[type="submit"] {
+  width: 40%;
+  margin: 0 auto;
+  background: var( --card4-gradient); 
+  border: none;
+  display: block;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-top: 20%;
+}
+.form-control {
+  margin-bottom: 10px;
+}
+.text-muted {
+  font-size: 14px;
+}
+button.btn.btn-link {
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+button.btn.btn-link:hover {
+  color: var(--uploadcontent);
+}
