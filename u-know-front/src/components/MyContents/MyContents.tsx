@@ -84,9 +84,8 @@ const MyContents = () => {
             </div>
 
             {contents.length === 2 && (
-                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert"> Sigue creando contenido increíble 🚀
-                    ¡Estoy emocionado por ver lo que vendrá a continuación! 🚀🌟
-                </div>
+                <div className="alert alert-warning mt-3 mb-4 mx-5" role="alert"> Sigue creando contenido 🚀 <br />¡Estoy emocionad@ por ver lo que vendrá a continuación! 🚀🌟
+                </div> 
             )}
         </div>
     );
