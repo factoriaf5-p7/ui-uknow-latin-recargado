@@ -32,3 +32,19 @@
 .modal.is-open {
   display: flex;
 }
+
+.style-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold; 
+  cursor: pointer;
+  margin-right: 10px; 
+}
+
+.style-btn:hover{
+    transform: rotate(15deg) scale(1.4);
+    transition: transform 0.3s ease, scale 0.3s ease;
+}

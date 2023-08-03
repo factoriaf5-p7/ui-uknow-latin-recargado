@@ -2,6 +2,7 @@ import "../../index.css";
 import { linkStyle } from "./ShowContentStyle";
 import { Course } from "../../services/content.service";
 import Modals from "../Modales/Modals";
+import "./ShowContent.css";
 
 interface ShowContentProps {
   courses: Course[] | undefined;
@@ -20,9 +21,11 @@ export default function ShowContent({ courses }: ShowContentProps) {
             }}
             key={course._id}
           >
-            <Modals courseData={course} />
             <h2>{course.title}</h2>
             <p>uK{course.price}</p>
+            <div className="modal-button">
+              <Modals courseData={course} />
+            </div>
           </div>
         ))}
       </div>
