@@ -122,7 +122,7 @@ export class ContentService {
     if (user.id_bought_content.includes(contentId)) {
       throw new HttpException('Content already purchased', HttpStatus.CONFLICT);
     }
-
+  
     user.id_bought_content.push(contentId);
 
     await user.save();

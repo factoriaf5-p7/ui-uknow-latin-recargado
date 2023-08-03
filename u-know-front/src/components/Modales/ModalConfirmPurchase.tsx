@@ -1,12 +1,12 @@
-import React from 'react'
-import Modal from 'react-modal'
-import axios from 'axios'
-import { Course } from '../../services/content.service'
+import React from "react";
+import Modal from "react-modal";
+import { Course, buyContentUser } from "../../services/content.service";
+import { useNavigate } from "react-router-dom";
 
 interface ModalConfirmPurchaseProps {
-  isOpen: boolean
-  onRequestClose: () => void
-  courseId: Course
+  isOpen: boolean;
+  onRequestClose: () => void;
+  courseId: Course;
 }
 
 const ModalConfirmPurchase: React.FC<ModalConfirmPurchaseProps> = ({
@@ -14,20 +14,35 @@ const ModalConfirmPurchase: React.FC<ModalConfirmPurchaseProps> = ({
   onRequestClose,
   courseId,
 }) => {
+  const navigate = useNavigate();
   const handleConfirmPurchase = async () => {
-    try {
-      // Realizar una solicitud a la API para guardar la compra en la base de datos
-      await axios.post('http://localhost:3000/api/v1/:id/buy/:contentId', {
-        courseId: courseId,
-      })
+    const id: string | null = localStorage.getItem("user_id");
+    if (id !== null) {
+      // aquí quiero usar el servicio buyContentUser pasandole el parametro "id"
+      // y el parametro "courseId._id"
+      try {
+        await buyContentUser(id, courseId._id);
 
-      // Cerrar el modal después de que la compra sea exitosa
-      onRequestClose()
-    } catch (error) {
-      // Manejar errores en caso de que la compra no se pueda guardar
-      console.error('Error al confirmar la compra:', error)
+        const walletBalanceStr: string | null =
+          localStorage.getItem("wallet_balance");
+        const walletBalance = Number(walletBalanceStr);
+        const updatedWalletBalance = walletBalance - courseId.price;
+        localStorage.setItem("wallet_balance", updatedWalletBalance.toString());
+        setTimeout(function () {
+          alert(
+            `Felicitaciones el curso ha sido comprado satisfactoriamente!!!`
+          );
+        }, 0);
+        navigate("/contentcart");
+      } catch (error) {
+        // Si hubo un error al realizar la compra, puedes manejarlo aquí
+        console.error(error);
+        onRequestClose();
+
+        // También puedes mostrar un mensaje de error o cualquier otra acción que desees
+      }
     }
-  }
+  };
 
   return (
     <Modal
@@ -40,7 +55,7 @@ const ModalConfirmPurchase: React.FC<ModalConfirmPurchaseProps> = ({
       <button onClick={handleConfirmPurchase}>it's OK</button>
       <button onClick={onRequestClose}>Cancel</button>
     </Modal>
-  )
-}
+  );
+};
 
-export default ModalConfirmPurchase
+export default ModalConfirmPurchase;
