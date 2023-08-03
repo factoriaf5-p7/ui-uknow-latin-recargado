@@ -1,6 +1,4 @@
 # 🚀U-KNOW 🚀 
-![u-know](//u-know-front/src/assets/logo-uk.png)
-
 # Plataforma de aprendizaje cooperativo
 
 
