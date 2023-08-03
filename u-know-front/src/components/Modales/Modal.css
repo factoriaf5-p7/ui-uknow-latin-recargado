@@ -10,7 +10,7 @@
   display: none;
   justify-content: center;
   padding-top: 30px;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .modal {
