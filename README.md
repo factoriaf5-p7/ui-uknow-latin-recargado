@@ -1,5 +1,5 @@
-#🚀U-KNOW 🚀
-#Plataforma de aprendizaje cooperativo
+# 🚀U-KNOW 🚀
+# Plataforma de aprendizaje cooperativo
 
 
 Somos una start-up que queremos cambiar el modelo de compartir conocimientos para favorecer el aprendizaje cooperativo y...divertirnos un poco también.
@@ -7,9 +7,13 @@ Somos una start-up que queremos cambiar el modelo de compartir conocimientos par
 Queremos crear U-KNOW, la nueva plataforma de intercambio de conocimientos y aprendizaje cooperativo. Nuestra aplicación se basará en el sistema de recompensas para mantener la calidad de los contenidos y favorecer la participación.
 
 En este momento nos encontramos en el tramo final de nuestro proyecto de desarrollo el cual estuvo divivido en tres tramos: 
+
 💻En un primer momento en el diseño y creación de bases de datos, el cual fue realizado en MongoDB y luego pudimos hacerlo colaborativo a partir de Mongo Atlas 
+
 💻La segunda etapa fue el diseño y desarrollo de una APIRest, es decir de el backend, para esto utilizamos nest.js y pudimos realizar todas las funciones necesarias para que nuestra aplicación pueda ser utilizada. 
-💻Como última instancia nos encontramos en el diseño y desarrollo de nuesta aplicación para ello necesitamos diseñar y llevar a cabo el frontend de la misma; logrando que este tenga las funcionalidades esperables. Para el desarrollo de esta etapa utilizamos React y Boostrap para los estilos. 
+
+💻Como última instancia nos encontramos en el diseño y desarrollo de nuesta aplicación para ello necesitamos diseñar y llevar a cabo el frontend de la misma; logrando que 
+este tenga las funcionalidades esperables. Para el desarrollo de esta etapa utilizamos React y Boostrap para los estilos. 
 
 # ⚙ Requerimientos necesarios ⚙:
 <details>
@@ -108,17 +112,17 @@ En este momento nos encontramos en el tramo final de nuestro proyecto de desarro
  </details>
 
 ## 📦Recursos entregables📦: 
-    📌[Repositorio de Github] (https://github.com/factoriaf5-p7/ui-uknow-latin-recargado)
-    📌[Tablero de trabajo - Trello] (https://trello.com/b/g9HzrXcI/latinfront)
-    📌 [Diseño de frontend - Figma] (https://www.figma.com/file/RsR4rcsrYd7RP4oBMicwMR/Untitled?type=design&node-id=0%3A1&mode=design&t=tsrbCK6Soo5ldoyI-1) 
-    📌[Presentación del proyecto] (https://www.canva.com/design/DAFqd1clRmM/Zz8vk2pS1bMRdFADWAmyJA/edit)
-    📌[Aplicación en despliegue]()
+ ** 📌[Repositorio de Github] (https://github.com/factoriaf5-p7/ui-uknow-latin-recargado)
+ ** 📌[Tablero de trabajo - Trello] (https://trello.com/b/g9HzrXcI/latinfront)
+ ** 📌 [Diseño de frontend - Figma] (https://www.figma.com/file/RsR4rcsrYd7RP4oBMicwMR/Untitled?type=design&node-id=0%3A1&mode=design&t=tsrbCK6Soo5ldoyI-1) 
+ ** 📌[Presentación del proyecto] (https://www.canva.com/design/DAFqd1clRmM/Zz8vk2pS1bMRdFADWAmyJA/edit)
+ ** 📌[Aplicación en despliegue]()
 
 ## Equipo de trabajo: 
-    👨‍💻Scrum Master: Sebastián Riggio 
-    👩‍💻 Product Owner: Evangelina Rodriguez 
-    👩‍💻 Development: Huilen Peña 
-    👨‍💻 Development: Jesús Fajardo
+ ** 👨‍💻Scrum Master: Sebastián Riggio 
+ ** 👩‍💻 Product Owner: Evangelina Rodriguez 
+ ** 👩‍💻 Development: Huilen Peña 
+ ** 👨‍💻 Development: Jesús Fajardo
 
 
 
